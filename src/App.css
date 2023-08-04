@@ -1,4 +1,4 @@
-.homaPage{
+.homePage{
   display: flex;
   flex-wrap: wrap;
   gap: 4rem;
@@ -18,3 +18,15 @@
   button{
     width: 6rem;
   }
+.navBar {
+  background-color: red;
+  width: 100%;
+}
+
+img {
+  display: flex;
+  justify-content: center;
+  width: 80vw;
+  height: 80vh;
+}
+
