@@ -16,7 +16,7 @@ import Layout from "./components/Layout";
 function App() {
   return (
     <div>
-      <h1>HOOKS</h1>
+     
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<HomePage />} />
