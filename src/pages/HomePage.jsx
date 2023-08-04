@@ -40,16 +40,21 @@ function HomePage() {
 
   return (
     <div>
+       <h1 style={{ color: "blue", fontSize: "16px" }}> HOOKS </h1>
+      <div  className="homaPage">
       {hotels.map((hotel) => {
         return (
-          <div key={hotel.title}>
+          <div key={hotel.title} className="hotelContainer">
             {" "}
             <p> Hotel: {hotel.title}</p>{" "}
+            <button>add to favourites</button>
           </div>
         );
       })}
 
-      <h1 style={{ color: "blue", fontSize: "16px" }}> HOOKS </h1>
+      </div>
+
+     
       <button onClick={() => setPage(page + 1)}>Previous</button>
       <button onClick={handleNextButton}>Next</button>
     </div>

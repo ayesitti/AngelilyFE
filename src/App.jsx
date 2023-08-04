@@ -9,6 +9,7 @@ import Comments from "./components/Comments";
 import Footer from "./components/Footer";
 import Map from "./components/Map";
 import PersonalNotes from "./components/PersonalNotes";
+import './App.css';
 
 function App() {
   return (
