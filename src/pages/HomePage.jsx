@@ -41,22 +41,27 @@ function HomePage() {
 
   return (
     <div>
-       <h1 style={{ color: "blue", fontSize: "16px" }}> HOOKS </h1>
-      <div  className="homaPage">
+   
+      <div  className="homePage">
+
       {hotels.map((hotel) => {
         return (
           <div key={hotel.title} className="hotelContainer">
-            {" "}
-            
+           < Link to={`/hotel/${hotel.title}`}
+  >
             <p> Hotel: {hotel.title}</p>{" "}
+            </Link>
             <img className="hotelImage" src={hotel.imgUrl} />
             <button>add to favourites</button>
           </div>
         );
       })}
   </div>
+  <div className="ButtonContainerHomePage">
+
       <button onClick={handlePreviousButton}>Previous</button>
       <button onClick={handleNextButton}>Next</button>
+  </div>
       
     </div>
   )

@@ -1,10 +1,20 @@
 import React from 'react'
+import { Link, Outlet } from "react-router-dom";
 
 function NavBar() {
   return (
-    <div className="navBar">
-        <h1> HELLO THIS IS NavBar
-            </h1></div>
+    
+    <>
+    <nav className="navBar">
+       <Link to={`/`} className="navLink"> 
+    <img src="./public/70083.png" alt=""  style={{ width: "3rem" }}/>
+    <div>Home</div>
+    </Link>
+    </nav>
+<Outlet/>
+    
+    </>
+
   )
 }
 
