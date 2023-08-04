@@ -47,6 +47,7 @@ function HomePage() {
         return (
           <div key={hotel.title} className="hotelContainer">
             {" "}
+            
             <p> Hotel: {hotel.title}</p>{" "}
             <img className="hotelImage" src={hotel.imgUrl} />
             <button>add to favourites</button>
