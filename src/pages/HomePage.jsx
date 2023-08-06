@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
+ import {BsFillSuitHeartFill} from "react-icons/bs";
 let page = 2;
 const API_URL = "https://hooks.adaptable.app/hotels";
 
@@ -47,12 +48,9 @@ function HomePage() {
       {hotels.map((hotel) => {
         return (
           <div key={hotel.title} className="hotelContainer">
-           < Link to={`/hotel/${hotel.title}`}
-  >
-            <p> Hotel: {hotel.title}</p>{" "}
-            </Link>
             <img className="hotelImage" src={hotel.imgUrl} />
-            <button>add to favourites</button>
+            <p className="hotel-name">{hotel.title}</p>
+            <button className="btn-favorite"><BsFillSuitHeartFill/></button>
           </div>
         );
       })}
