@@ -13,8 +13,6 @@ function Layout() {
   
 </main> 
 
-    
-
       <Footer/>
     </>
   );
