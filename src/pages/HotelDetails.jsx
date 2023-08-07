@@ -51,7 +51,7 @@ function HotelDetails() {
 			)})}
 	
 			</div>
-		<Map/>
+		<Map oneHotel={oneHotel}/>
 	</div>
 	);
   }
