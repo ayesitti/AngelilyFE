@@ -14,6 +14,7 @@ import "./App.css";
 import Layout from "./components/Layout";
 import LoginPage from "./pages/LoginPage";
 import SignupPage from "./pages/SignupPage";
+import { useState } from "react";
 
 const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
 
