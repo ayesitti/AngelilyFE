@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 function LoginPage({ storeUser }) {
@@ -15,7 +16,7 @@ function LoginPage({ storeUser }) {
         `https://hooks.adaptable.app/users?username=${user.username}&email=${user.email}&password=${user.password}`
       );
       if (!response.data.length) {
-        throw new Error("Could not find the user");
+        throw new Error("Could not find the user.");
       }
       const foundUser = response.data[0];
       console.log(foundUser);
@@ -31,7 +32,7 @@ function LoginPage({ storeUser }) {
   }
 
   return (
-    <div>
+    <div className="form">
       <h2>Login</h2>
       <form onSubmit={handleSubmit}>
         <div>
@@ -67,8 +68,13 @@ function LoginPage({ storeUser }) {
             }
           />
         </div>
+        <p>Not registered yet?</p>
+         <Link to={"/signup"}>
+              <p>Sign up here</p>
+              </Link>
         <p className="error">{error}</p>
-        <button>Login</button>
+        
+        <button className="login-btn">Login</button>
       </form>
     </div>
   );

@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 function SignupPage() {
@@ -21,10 +22,10 @@ function SignupPage() {
     }
   }
   return (
-    <div>
+    <div className="form">
       <h2>Sign up</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
+      <form  onSubmit={handleSubmit}>
+        <div className="user-name">
           <label htmlFor="username"> Username:</label>
           <input
             type="text"
@@ -35,7 +36,7 @@ function SignupPage() {
             }
           />
         </div>
-        <div>
+        <div className="e-mail">
           <label htmlFor="email">E-mail: </label>
           <input
             type="email"
@@ -46,7 +47,7 @@ function SignupPage() {
             }
           />
         </div>
-        <div>
+        <div className="pass-word">
           <label htmlFor="password">Password: </label>
           <input
             type="password"
@@ -57,6 +58,11 @@ function SignupPage() {
             }
           />
         </div>
+        <p>Already have an account? <Link to={"/login"}>
+        Log in here.
+                  </Link></p>
+        
+
         <p className="error">{error}</p>
         <button className="sign-up"> Sign up</button>
       </form>

@@ -7,9 +7,22 @@
 
 :root {
   --green: #59A68A;
+  --primary-bg: #f1f5f1;
+  --secondary-bg: #bee1be;
+  --primary-text-color: #cecece;
+  --border-radius: 8px;
+  --speed: 500ms;
 }
 
 body {
   margin: 0;
   font-family: 'Quicksand', sans-serif;
+  background-color: var(--primary-bg)
+}
+
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
 }

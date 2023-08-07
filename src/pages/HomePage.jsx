@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
- import {BsFillSuitHeartFill} from "react-icons/bs";
+import { PiHeartBold } from "react-icons/pi";
 let page = 2;
 const API_URL = "https://hooks.adaptable.app/hotels";
 
@@ -41,31 +41,30 @@ function HomePage() {
   }
 
   return (
-    <div>
-   
-      <div  className="homePage">
-
-      {hotels.map((hotel) => {
-        return (
-          <div key={hotel.title} className="hotelContainer">
-           < Link to={`/hotel/${hotel.title}`} >
-            <p> Hotel: {hotel.title}</p>{" "}
-            </Link>
-            <img className="hotelImage" src={hotel.imgUrl} />
-            <p className="hotel-name">{hotel.title}</p>
-            <button className="btn-favorite"><BsFillSuitHeartFill/></button>
-          </div>
-        );
-      })}
-  </div>
-  <div className="ButtonContainerHomePage">
-
-      <button onClick={handlePreviousButton}>Previous</button>
-      <button onClick={handleNextButton}>Next</button>
-  </div>
-      
-    </div>
-  )
+    <>
+      <div className="homePage">
+        {hotels.map((hotel) => {
+          return (
+            <div key={hotel.title} className="hotelContainer">
+              <img className="hotelImage" src={hotel.imgUrl} />
+              <Link to={`/hotel/${hotel.title}`}>
+                <h2 className="hotel-name">{hotel.title}</h2>{" "}
+              </Link>
+            <p className="hotel-address">{hotel.address}</p>
+            <p className="hotel-rating">Rating: {hotel.rating}</p>
+              <button className="btn-favorite">
+                <PiHeartBold />
+              </button>
+            </div>
+          );
+        })}
+      </div>
+      <div className="ButtonContainerHomePage">
+        <button onClick={handlePreviousButton}>Previous</button>
+        <button onClick={handleNextButton}>Next</button>
+      </div>
+    </>
+  );
 }
 
 export default HomePage;

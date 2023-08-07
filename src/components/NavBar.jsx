@@ -2,15 +2,50 @@ import React from "react";
 import { Link, Outlet } from "react-router-dom";
 import logo from "../assets/hooks-high-resolution-logo-color-on-transparent-background.png";
 import { HiUserCircle } from "react-icons/hi";
-import { GrFavorite } from "react-icons/gr";
+import { ImHeart } from "react-icons/im";
 import { MdLocationSearching } from "react-icons/md";
-import { AiTwotoneHome } from "react-icons/ai";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { useState, useEffect, useRef } from "react";
+
+// function DropdownItem() {
+//   return (
+//     <ul className="dropdownItem">
+//       {/* <div>Login</div> */}
+
+//      <Link to={"/login"}><li><h2>Log in</h2></li></Link>
+//      <Link to={"/signup"}> <li><h2>Sign up</h2></li>
+//       </Link>
+//     </ul>
+//   );
+// }
+
 function NavBar() {
+  const [open, setOpen] = useState(false);
+  let menuRef = useRef();
+  useEffect(() => {
+    let handler = (e) => {
+      if(!menuRef.current.contains(e.target)){
+        setOpen(false);
+        console.log(menuRef.current);
+      }
+    }
+    document.addEventListener("mousedown", handler)
+    return () => {
+      document.removeEventListener("mousedown", handler)
+    }
+  })
   return (
     <>
       <nav className="navBar">
         {/* left */}
-        <img src={logo} className="logo" alt="hookslogo" />
+        <div>
+          {" "}
+          <Link to={`/`}>
+            {" "}
+            <img src={logo} className="logo" alt="hookslogo" />
+          </Link>
+        </div>
+
         {/* middle */}
         <div className="search-bar">
           <input type="search" placeholder="Hotel Name" />
@@ -19,22 +54,41 @@ function NavBar() {
           </button>
         </div>
         {/* right */}
-        <div className="profile-container">
-        <Link to={`/`}>
-          {/* <img src="./public/70083.png" alt=""  style={{ width: "3rem" }}/> */}
-          <div>
-            <AiTwotoneHome />
+        <div className="favorites-trigger">
+          <ImHeart />
+        </div>
+        <div className="menu-container" ref={menuRef}>
+          <div
+            className="menu-trigger"
+            onClick={() => {
+              setOpen(!open);
+            }}
+          >
+            <GiHamburgerMenu />
+            <HiUserCircle />
           </div>
-        </Link>
-        <div>
-          <GrFavorite />
-        </div>
-        <div>
-          <HiUserCircle />
-        </div>
+          <div className={`dropdown-menu ${open ? 'active' : 'inactive'}`}>
+            <h3>
+              Hello, <span>{'User'}</span>
+            </h3>
+
+            <ul className="dropdownItem">
+              <Link to={"/login"}>
+                <li>
+                  <h2>Log in</h2>
+                </li>
+              </Link>
+              <Link to={"/signup"}>
+                {" "}
+                <li>
+                  <h2>Sign up</h2>
+                </li>
+              </Link>
+              <li><h2>Log out</h2></li>
+            </ul>
+          </div>
         </div>
       </nav>
-  
     </>
   );
 }
