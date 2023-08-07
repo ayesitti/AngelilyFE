@@ -1,0 +1,16 @@
+.photosOfOneHotel{
+    width: 15rem;
+  }
+  
+.roomsPhotosContainer{
+    width: 100%;
+    display: flex;
+    gap:1rem;
+    flex-wrap: wrap;
+  }
+.mainPhotoOfHotel{
+    width: 30rem
+}
+.photosZone {
+  background-color: aqua;
+}

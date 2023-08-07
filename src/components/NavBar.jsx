@@ -11,7 +11,7 @@ function NavBar() {
     <div>Home</div>
     </Link>
     </nav>
-<Outlet/>
+
     
     </>
 
