@@ -12,14 +12,14 @@ function LoginPage({ storeUser }) {
 
     try {
       const response = await axios.get(
-        `https://hooks.adaptable.app/hotels/users?username=${user.username}&email=${user.email}&password=${user.password}`
+        `https://hooks.adaptable.app/users?username=${user.username}&email=${user.email}&password=${user.password}`
       );
       if (!response.data.length) {
         throw new Error("Could not find the user");
       }
       const foundUser = response.data[0];
       console.log(foundUser);
-      //	delete foundUser.password
+    delete foundUser.password
       storeUser(foundUser);
       navigate("/");
     } catch (error) {
