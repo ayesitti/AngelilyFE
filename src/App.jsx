@@ -17,10 +17,10 @@ function App() {
   return (
     <div>
       <Routes>
-        <Route element={<Layout />}>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/hotel/:title" element={<HotelDetails />} />
-          <Route path="/favorites" element={<Favorites />} />
+        <Route path="/" element={<Layout />}>
+          <Route index element={<HomePage />} />
+          <Route path="hotel/:title" element={<HotelDetails />} />
+          <Route path="favorites" element={<Favorites />} />
         </Route>
       </Routes>
     </div>

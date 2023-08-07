@@ -9,7 +9,7 @@ const API_URL = "https://hooks.adaptable.app/hotels";
 
 function HomePage() {
   const [hotels, setHotels] = useState([]);
-  //const [page, setPage] = useState(1)
+  // const [page, setPage] = useState(1)
 
   async function fetchAllHotels(page) {
     try {
