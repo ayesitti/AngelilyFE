@@ -28,18 +28,24 @@
   display: grid;
   grid-template-columns: [one] 2fr [two] 1fr [three] 1fr [four];
   grid-template-rows: [row1-start] 1fr [row1-end] 1fr;
-  padding: 5rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  padding-left: 6rem;
+  padding-right: 6rem;
   align-content: center;
   justify-content: center;
   column-gap: 2%;
-  row-gap: 5%;
+  row-gap: 10%;
+  margin-bottom: 4rem;
 }
 .oneHotelTitle {
 font-size: 3rem;
 font-weight:900;
-padding-left: 2rem;
+padding-left: 3rem;
+margin: 1rem;
 }
 .oneHotelAdress{
   font-size: 1rem;
-  padding-left: 2.5rem;
+  padding-left: 3.2rem;
+  margin: 1rem;
 }

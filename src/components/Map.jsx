@@ -3,38 +3,28 @@ import "leaflet/dist/leaflet.css";
 import { MapContainer, TileLayer, useMap, Marker, Popup } from 'react-leaflet'
 
 function Map(props) {
-  console.log(props, 'map')
-   // const lonlan = [48.8566, 2.3522]
-  
+ let {latitude} = props.oneHotel
 
-    /*useEffect(() => {
+  let {longitude} = props.oneHotel
+  longitude =  Number(longitude).toFixed(3)
+  latitude =  Number(latitude).toFixed(3)
 
-      const map = L.map('map').setView(lonlan, zoom);
-        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 19,
-            attribution: '© OpenStreetMap'
-        }).addTo(map);
+  let arr = [];
+  arr.push(+latitude, +longitude);
+  console.log(arr, 'map')
 
-    }, [])*/
-
-
-    /*L.Marker.prototype.options.icon = L.divIcon({className: 'pin2'});
-        
-
-                    const marker = L.marker([lat, lng]);
-                    marker.velodata = item;*/
-                 //   this.markerList.push( marker.addTo(this.map))
+let {title} = props.oneHotel
                 
   return (
     
-    <MapContainer center={[51.505, -0.09]} zoom={13} scrollWheelZoom={false} style={{height: '1000px'}}>
+    <MapContainer center={arr} zoom={15} scrollWheelZoom={false} style={{height: '1000px'}}>
   <TileLayer
     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
   />
-  <Marker position={[51.505, -0.09]}>
+  <Marker position={arr}>
     <Popup>
-      A pretty CSS3 popup. <br /> Easily customizable.
+      {title}
     </Popup>
   </Marker>
 </MapContainer>
