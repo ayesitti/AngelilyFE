@@ -16,14 +16,13 @@ import LoginPage from "./pages/LoginPage";
 import SignupPage from "./pages/SignupPage";
 import { useState } from "react";
 
-
-function storeUser(userArg) {
-  const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
-  setUser(userArg);
-  localStorage.setItem("user", JSON.stringify(userArg));
-}
-
 function App() {
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
+
+  function storeUser(userArg) {
+    setUser(userArg);
+    localStorage.setItem("user", JSON.stringify(userArg));
+  }
   return (
     <div>
       <Routes>
@@ -31,10 +30,7 @@ function App() {
           <Route index element={<HomePage />} />
           <Route path="hotel/:title" element={<HotelDetails />} />
           <Route path="favorites" element={<Favorites />} />
-          <Route
-            path="/login"
-            element={<LoginPage storeUser={storeUser}/>}
-          />
+          <Route path="/login" element={<LoginPage storeUser={storeUser} />} />
           <Route path="/signup" element={<SignupPage />} />
         </Route>
       </Routes>
