@@ -48,8 +48,7 @@ function HomePage() {
       {hotels.map((hotel) => {
         return (
           <div key={hotel.title} className="hotelContainer">
-           < Link to={`/hotel/${hotel.title}`}
-  >
+           < Link to={`/hotel/${hotel.title}`} >
             <p> Hotel: {hotel.title}</p>{" "}
             </Link>
             <img className="hotelImage" src={hotel.imgUrl} />

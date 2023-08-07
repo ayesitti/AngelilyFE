@@ -1,5 +1,5 @@
 import React from "react";
-import "./App.css"
+import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import HotelDetails from "./pages/HotelDetails";
@@ -10,13 +10,12 @@ import Comments from "./components/Comments";
 import Footer from "./components/Footer";
 import Map from "./components/Map";
 import PersonalNotes from "./components/PersonalNotes";
-import './App.css';
+import "./App.css";
 import Layout from "./components/Layout";
 
 function App() {
   return (
     <div>
-     
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<HomePage />} />
