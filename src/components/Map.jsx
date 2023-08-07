@@ -3,9 +3,9 @@ import "leaflet/dist/leaflet.css";
 import { MapContainer, TileLayer, useMap, Marker, Popup } from 'react-leaflet'
 
 function Map(props) {
- 
-    const lonlan = [48.8566, 2.3522]
-    const zoom = 13;
+  console.log(props, 'map')
+   // const lonlan = [48.8566, 2.3522]
+  
 
     /*useEffect(() => {
 
