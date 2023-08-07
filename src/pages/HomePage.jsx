@@ -48,6 +48,10 @@ function HomePage() {
       {hotels.map((hotel) => {
         return (
           <div key={hotel.title} className="hotelContainer">
+           < Link to={`/hotel/${hotel.title}`}
+  >
+            <p> Hotel: {hotel.title}</p>{" "}
+            </Link>
             <img className="hotelImage" src={hotel.imgUrl} />
             <p className="hotel-name">{hotel.title}</p>
             <button className="btn-favorite"><BsFillSuitHeartFill/></button>
