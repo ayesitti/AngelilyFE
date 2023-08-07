@@ -34,7 +34,7 @@ function NavBar() {
         </div>
         </div>
       </nav>
-      <Outlet />
+  
     </>
   );
 }

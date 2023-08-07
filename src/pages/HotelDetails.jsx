@@ -1,5 +1,4 @@
 import '../stylesDetailPage.css'
-import React from 'react'
 import axios from "axios"
 import { useParams } from "react-router-dom"
 import { useEffect, useState } from "react"
@@ -36,24 +35,21 @@ function HotelDetails() {
   
 	return (
 	<div>
-		<div>
-		<h1> {oneHotel.title} </h1>
-		<p>{ oneHotel.address}</p>
-		<div className='photosZone'>
-
-
 		
+		<h1 className='oneHotelTitle'> {oneHotel.title} </h1>
+		<p className='oneHotelAdress'>{ oneHotel.address}</p>
+		<div className='photosZone'>
 		<img src={oneHotel.imgUrl} alt="" className='mainPhotoOfHotel' />
 		{console.log(oneHotel, "check")}
-			</div>
-		<div className='roomsPhotosContainer'>
+			
+		
 			{ oneHotel.imgRooms.map(el => {
 			return (
 				<div key={el} >	
 			<img src={el} alt="" className='photosOfOneHotel' />
 				</div>
 			)})}
-		</div>
+	
 			</div>
 		<Map/>
 	</div>

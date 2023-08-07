@@ -8,11 +8,14 @@ function Layout() {
     <>
       <NavBar/>
 
-      <main>
+<main>
         <Outlet />
-      </main>
+  
+</main> 
 
-      <Footer></Footer>
+    
+
+      <Footer/>
     </>
   );
 }
