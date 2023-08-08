@@ -27,8 +27,8 @@ function Favorites({ user }) {
         console.log(userFavorites, el, "favLily");
         return (
           <div key={el.id}>
-            <p> {el.id}</p>
-            <p>{el.hotelId}</p>
+            <p> {el.id} id of favorite</p>
+            <p>{el.hotelId} id of hotel</p>
           </div>
         );
       })}
