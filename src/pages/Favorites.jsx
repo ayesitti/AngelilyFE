@@ -21,6 +21,7 @@ function Favorites({user}) {
   useEffect(() => {
    fetchFavorites()
   }, []);
+  
   return (
     <div>
       <h1> Check fav</h1>
