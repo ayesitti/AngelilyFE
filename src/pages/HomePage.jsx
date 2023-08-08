@@ -9,13 +9,13 @@ import { PiHeartBold } from "react-icons/pi";
 const API_URL = "https://hooks.adaptable.app/hotels";
 
 function HomePage({user}) {
-
+  
   console.log(user, 'check')
-
+  
   const [hotels, setHotels] = useState([]);
   const [page, setPage] = useState(1)
-  const [userFavorites, setUserFavorites] = useState(null)
-
+  const [userFavorites, setUserFavorites] = useState([])
+  
   async function fetchAllHotels(page) {
     try {
       const response = await axios.get(`${API_URL}?_page=${page}&_limit=9`);
@@ -24,10 +24,23 @@ function HomePage({user}) {
       console.log(error);
     }
   }
-
+  
+  async function addToFavorites(hotelId) {
+    try {
+      const newFavorite = {
+        userId: user.id,
+        hotelId: hotelId,
+      }
+      await axios.post("https://hooks.adaptable.app/favorites", newFavorite)
+      console.log('POST HOTEL')
+      fetchFavorites()
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
   useEffect(() => {
     fetchAllHotels(page);
-    fetchFavorites()
+   /* fetchFavorites()*/
   }, [page]);
 
   function handlePreviousButton() {
@@ -50,23 +63,10 @@ function HomePage({user}) {
     }
   }
 
-  /*useEffect(() => {
+  useEffect(() => {
     fetchFavorites()
-  }, [])*/
+  }, [])
 
-  async function addToFavorites(hotelId) {
-    try {
-      const newFavorite = {
-        userId: user.id,
-        hotelId: hotelId,
-      }
-      await axios.post("https://hooks.adaptable.app/favorites", newFavorite)
-      console.log('POST HOTEL')
-      fetchFavorites()
-    } catch (error) {
-      console.log(error.message);
-    }
-  }
 
   async function removeFavorites(favoriteId) {
 		try {

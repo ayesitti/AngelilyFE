@@ -4,7 +4,7 @@ import { FaRegHeart } from "react-icons/fa";
 import HomePage from './HomePage';*/
 
 function Favorites() {
-
+  
   return (
     <div>
    
