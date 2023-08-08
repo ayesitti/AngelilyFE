@@ -1,4 +1,5 @@
 import  {useState, useEffect} from "react";
+import axios from "axios";
 
 function Favorites({user}) {
 
@@ -26,7 +27,7 @@ function Favorites({user}) {
       {userFavorites.map(el => {
         console.log(userFavorites, el, "favLily")
       return (
-      <p> {el}</p>
+      <p> {el.id}</p>
       )
       }
 
