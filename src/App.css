@@ -161,4 +161,9 @@ h3 span {
   border-radius: 10%
 
 }
+.fav-hotelsdetails {
+  width: 20rem;
+  object-fit: cover;
+  border-radius: 3px;
 
+}
