@@ -1,8 +1,7 @@
 import  {useState, useEffect} from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import NavBar from "../components/NavBar";
-import Footer from "../components/Footer";
+
 import { PiHeartBold } from "react-icons/pi";
 
 
@@ -10,7 +9,6 @@ const API_URL = "https://hooks.adaptable.app/hotels";
 
 function HomePage({user}) {
   
-  console.log(user, 'check')
   
   const [hotels, setHotels] = useState([]);
   const [page, setPage] = useState(1)
@@ -40,7 +38,6 @@ function HomePage({user}) {
   }
   useEffect(() => {
     fetchAllHotels(page);
-   /* fetchFavorites()*/
   }, [page]);
 
   function handlePreviousButton() {
@@ -56,7 +53,6 @@ function HomePage({user}) {
       const response = await axios.get (
         `https://hooks.adaptable.app/favorites?userId=${user.id}`
       )
-      console.log(response.data) ;
       setUserFavorites(response.data)
     } catch (error) {
       console.log(error);
