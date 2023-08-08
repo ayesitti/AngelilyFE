@@ -16,14 +16,14 @@ function Favorites({user}) {
       console.log(error);
     }
 
-    useEffect(() => {
-     fetchFavorites()
-    }, []);
   }
-
+  
+  useEffect(() => {
+   fetchFavorites()
+  }, []);
   return (
     <div>
-   
+      <h1> Check fav</h1>
       {userFavorites.map(el => {
         console.log(userFavorites, el, "favLily")
       return (
