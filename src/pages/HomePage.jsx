@@ -53,6 +53,7 @@ function HomePage({user}) {
       const response = await axios.get (
         `https://hooks.adaptable.app/favorites?userId=${user.id}`
       )
+      console.log(response.data, "TEST")
       setUserFavorites(response.data)
     } catch (error) {
       console.log(error);
@@ -95,7 +96,7 @@ function HomePage({user}) {
             <p className="hotel-rating">Rating: {hotel.rating}</p>
             {isFav 
              ? ( 
-							<button onClick={() => removeFavorites(isFav.hotelId)}>❤️</button>
+							<button onClick={() => removeFavorites(isFav.id)}>❤️</button>
 						) : (
 							<button onClick={() => addToFavorites(hotel.id) }>💔</button>
 						)}
