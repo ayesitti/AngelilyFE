@@ -1,4 +1,5 @@
 import  {useState, useEffect} from "react";
+import axios from "axios";
 
 function Favorites({user}) {
 
@@ -15,18 +16,22 @@ function Favorites({user}) {
       console.log(error);
     }
 
-    useEffect(() => {
-     fetchFavorites()
-    }, []);
   }
-
+  
+  useEffect(() => {
+   fetchFavorites()
+  }, []);
   return (
     <div>
+<<<<<<< HEAD
       
+=======
+      <h1> Check fav</h1>
+>>>>>>> a8a94ffc0e790512429986a8824869ca7d469481
       {userFavorites.map(el => {
         console.log(userFavorites, el, "favLily")
       return (
-      <p> {el}</p>
+      <p> {el.id}</p>
       )
       }
 
