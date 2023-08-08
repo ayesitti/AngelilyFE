@@ -28,10 +28,12 @@ function Favorites({user}) {
       {userFavorites.map(el => {
         console.log(userFavorites, el, "favLily")
       return (
-        <>
-      <p> {el.id}</p>
-      <p>{el.hotelId}</p>
-      </>
+        <div key={el.id}>
+
+          <p> {el.id} id of favorite</p>
+          <p>{el.hotelId} id of hotel</p>
+        </div>
+  
       )
       }
 

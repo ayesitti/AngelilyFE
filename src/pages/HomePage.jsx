@@ -82,7 +82,7 @@ function HomePage({user}) {
     <>
       <div className="homePage">
         {hotels.map((hotel) => {
-          	const isFav = userFavorites.find((fav) => fav.id === hotel.hotelId)
+          	const isFav = userFavorites.find((fav) => fav.hotelId === hotel.id)
           return (
             <div key={hotel.title} className="hotelContainer">
               <img className="hotelImage" src={hotel.imgUrl} />
@@ -92,9 +92,9 @@ function HomePage({user}) {
             <p className="hotel-address">{hotel.address}</p>
             <p className="hotel-rating">Rating: {hotel.rating}</p>
             {isFav ? (
-							<button onClick={() => removeFavorites(isFav.id)}>❤️</button>
+							<button onClick={() => removeFavorites(isFav.hotelId)}>❤️</button>
 						) : (
-							<button onClick={() => addToFavorites(hotel.hotelId)}>💔</button>
+							<button onClick={() => addToFavorites(hotel.id)}>💔</button>
 						)}
             </div>
           );
