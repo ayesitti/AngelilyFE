@@ -44,7 +44,7 @@ function Favorites() {
     {hotels.map((hotel) => {
       const isFave = userFavorites.find((el) => el.hotelId === hotel.id) 
       return (
-        <p key {hotel.id}>
+        <p key={hotel.id}>
           {hotel.title} 
           {isFave ? (
             <button onClick={() => removeFavorites(isFave.id)}><FaRegHeart /></button>
