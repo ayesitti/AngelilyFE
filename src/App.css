@@ -106,6 +106,10 @@
   visibility: visible;
   transform: translateY(0);
   transition: var(--speed) ease;
+
+  -webkit-box-shadow: 5px 5px 15px 5px #000000; 
+  box-shadow: 5px 5px 15px 5px #000000;
+    
 }
 
 .dropdown-menu.inactive {
