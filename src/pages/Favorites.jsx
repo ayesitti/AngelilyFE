@@ -1,45 +1,39 @@
-import  {useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 
-function Favorites({user}) {
-
-  const [userFavorites, setUserFavorites] = useState([])
+function Favorites({ user }) {
+  const [userFavorites, setUserFavorites] = useState([]);
 
   const fetchFavorites = async () => {
     try {
-      const response = await axios.get (
+      const response = await axios.get(
         `https://hooks.adaptable.app/favorites?userId=${user.id}`
-      )
-      setUserFavorites(response.data) 
-      console.log(response.data, 'lala') ;
+      );
+      setUserFavorites(response.data);
+      console.log(response.data, "lala");
     } catch (error) {
       console.log(error);
     }
+  };
 
-  }
-  
   useEffect(() => {
-   fetchFavorites()
+    fetchFavorites();
   }, []);
-  
+
   return (
     <div>
-      
       <h1> Check fav</h1>
-      {userFavorites.map(el => {
-        console.log(userFavorites, el, "favLily")
-      return (
-        <>
-      <p> {el.id}</p>
-      <p>{el.hotelId}</p>
-      </>
-      )
-      }
-
-      )}
-   
+      {userFavorites.map((el) => {
+        console.log(userFavorites, el, "favLily");
+        return (
+          <div key={el.id}>
+            <p> {el.id}</p>
+            <p>{el.hotelId}</p>
+          </div>
+        );
+      })}
     </div>
-  )
+  );
 }
 
-export default Favorites
+export default Favorites;
