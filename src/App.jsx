@@ -14,9 +14,8 @@ import "./App.css";
 import Layout from "./components/Layout";
 import LoginPage from "./pages/LoginPage";
 import SignupPage from "./pages/SignupPage";
-import { useState, useEffect } from "react";
-
-
+import { useState } from "react";
+import NavBar from "./components/NavBar";
 
 function App() {
   
@@ -26,13 +25,14 @@ function App() {
     setUser(userArg);
     localStorage.setItem("user", JSON.stringify(userArg));
   }
-
-
-  
-       
-
-    return (
+  function removeUser () {
+    setUser(null)
+    localStorage.removeItem("user")
+    
+  }
+  return (
     <div>
+      <NavBar removeUser={removeUser} />
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage  user={user}/>} />
