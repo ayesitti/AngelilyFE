@@ -27,6 +27,7 @@ function HomePage({user}) {
 
   useEffect(() => {
     fetchAllHotels(page);
+    fetchFavorites()
   }, [page]);
 
   function handlePreviousButton() {
@@ -49,9 +50,9 @@ function HomePage({user}) {
     }
   }
 
-  useEffect(() => {
+  /*useEffect(() => {
     fetchFavorites()
-  }, [])
+  }, [])*/
 
   async function addToFavorites(hotelId) {
     try {
