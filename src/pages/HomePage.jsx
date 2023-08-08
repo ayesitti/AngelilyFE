@@ -4,16 +4,16 @@ import axios from "axios";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import { PiHeartBold } from "react-icons/pi";
-let page = 2;
+// let page = 2;
 const API_URL = "https://hooks.adaptable.app/hotels";
 
 function HomePage() {
   const [hotels, setHotels] = useState([]);
-  // const [page, setPage] = useState(1)
+  const [page, setPage] = useState(1)
 
   async function fetchAllHotels(page) {
     try {
-      const response = await axios.get(`${API_URL}?_page=${page}`);
+      const response = await axios.get(`${API_URL}?_page=${page}&_limit=9`);
       setHotels(response.data);
     } catch (error) {
       console.log(error);
@@ -22,18 +22,14 @@ function HomePage() {
 
   useEffect(() => {
     fetchAllHotels(page);
-  }, []);
+  }, [page]);
 
   function handlePreviousButton() {
-    page = page - 1;
-    console.log(page);
-    return fetchAllHotels(page);
+    setPage(page - 1)
   }
 
   function handleNextButton() {
-    page = page + 1;
-    console.log(page);
-    return fetchAllHotels(page);
+    setPage(page + 1)
   }
 
   if (!hotels) {

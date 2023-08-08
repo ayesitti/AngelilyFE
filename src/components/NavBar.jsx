@@ -1,12 +1,11 @@
 import React from "react";
-import { Link, Outlet } from "react-router-dom";
+import { Link, useLocation} from "react-router-dom";
 import logo from "../assets/hooks-high-resolution-logo-color-on-transparent-background.png";
 import { HiUserCircle } from "react-icons/hi";
 import { ImHeart } from "react-icons/im";
 import { MdLocationSearching } from "react-icons/md";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { useState, useEffect, useRef } from "react";
-
 // function DropdownItem() {
 //   return (
 //     <ul className="dropdownItem">
@@ -20,6 +19,8 @@ import { useState, useEffect, useRef } from "react";
 // }
 
 function NavBar() {
+  const history = useLocation()
+  console.log(history)
   const [open, setOpen] = useState(false);
   let menuRef = useRef();
   useEffect(() => {
@@ -47,12 +48,15 @@ function NavBar() {
         </div>
 
         {/* middle */}
+        {
+          history.pathname === '/' &&
         <div className="search-bar">
           <input type="search" placeholder="Hotel Name" />
           <button className="searchBtn">
             <MdLocationSearching />
           </button>
         </div>
+        }
         {/* right */}
         <div className="favorites-trigger">
           <ImHeart />
