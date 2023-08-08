@@ -21,7 +21,16 @@ function Favorites() {
     fetchFavorites()
   }, [])
 
-  async function addToFavorites(hotelId) {}
+  async function addToFavorites(hotelId) {
+    try {
+      const newFavorite = {
+        userId: useDeferredValue.id,
+        hotelId: hotelId,
+      }
+      await axios.post("https://hooks.adaptable.app/favorites", newFavorite)
+
+    } catch
+  }
   
 
   return (
