@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
-
+import { PiHeartBold } from "react-icons/pi";
+import { FaRegHeart } from "react-icons/fa";
 function Favorites() {
   const [hotels, setHotels] = useState(null)
   const [userFavorites, setUserFavorites] = useState(null)
@@ -24,17 +25,37 @@ function Favorites() {
   async function addToFavorites(hotelId) {
     try {
       const newFavorite = {
-        userId: useDeferredValue.id,
+        userId: user.id,
         hotelId: hotelId,
       }
       await axios.post("https://hooks.adaptable.app/favorites", newFavorite)
-
-    } catch
+      fetchFavorites()
+    } catch (error) {
+      console.log(error.message);
+    }
   }
-  
+  if (!hotels || !userFavorites) {
+    return <p>Sorry, there's no hotel to display</p>
+  }
 
   return (
-    <div>Favorites</div>
+    <div>
+      <h2>Favorite thingzzzz</h2>
+    {hotels.map((hotel) => {
+      const isFave = userFavorites.find((el) => el.hotelId === hotel.id) 
+      return (
+        <p key {hotel.id}>
+          {hotel.title} 
+          {isFave ? (
+            <button onClick={() => removeFavorites(isFave.id)}><FaRegHeart /></button>
+          ): ( 
+            <button onClick={() => addToFavorites(hotel.id)}><PiHeartBold/><PiHeartBold/></button>
+          )}
+        </p>
+      )
+    })}
+
+    </div>
   )
 }
 
