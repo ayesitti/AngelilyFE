@@ -1,8 +1,11 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
+// const API_URL = "https://hooks.adaptable.app/hotels";
+
 function Favorites({ user }) {
   const [userFavorites, setUserFavorites] = useState([]);
+  const [favoriteHotelsDetails, setFavoriteHotelsDetails] = useState([]);
 
   const fetchFavorites = async () => {
     try {
@@ -16,15 +19,40 @@ function Favorites({ user }) {
     }
   };
 
+  const fetchHotelDetails = async (hotelId) => {
+    try {
+      const response = await axios.get(`https://hooks.adaptable.app/hotels/${hotelId}`)
+     return response.data
+    } catch (error) {
+      console.log(error);
+      return "Oopss.. Failed to fetch hotel details"
+    } 
+  }
+
   useEffect(() => {
     fetchFavorites();
   }, []);
 
+  useEffect(() => {
+    const fetchDetailsFavorites = async () => {
+      const allDetails = userFavorites.map((favorite) => 
+    fetchHotelDetails(favorite.hotelId)
+  ) 
+   const details = await Promise.all(allDetails)
+  setFavoriteHotelsDetails(details)
+    }
+    if (userFavorites.length > 0) {
+      fetchDetailsFavorites()
+    }
+  }, [])
+
+
+
   return (
     <div>
-      <h1> Check fav</h1>
+      <h1> Hotel favorites</h1>
       {userFavorites.map((el) => {
-        console.log(userFavorites, el, "favLily");
+        console.log(userFavorites, el);
         return (
           <div key={el.id}>
             <p> {el.id} id of favorite</p>
