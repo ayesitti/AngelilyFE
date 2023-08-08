@@ -1,15 +1,20 @@
-import React, { useState, useEffect } from "react";
+import  {useState, useEffect} from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import { PiHeartBold } from "react-icons/pi";
-// let page = 2;
+
+
 const API_URL = "https://hooks.adaptable.app/hotels";
 
-function HomePage() {
+function HomePage({user}) {
+
+  console.log(user, 'check')
+
   const [hotels, setHotels] = useState([]);
   const [page, setPage] = useState(1)
+  const [userFavorites, setUserFavorites] = useState(null)
 
   async function fetchAllHotels(page) {
     try {
@@ -32,6 +37,46 @@ function HomePage() {
     setPage(page + 1)
   }
 
+  const fetchFavorites = async () => {
+    try {
+      const response = await axios.get (
+        `https://hooks.adaptable.app/favorites?userId=${user.id}`
+      )
+      console.log(response.data) ;
+      setUserFavorites(response.data)
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  useEffect(() => {
+    fetchFavorites()
+  }, [])
+
+  async function addToFavorites(hotelId) {
+    try {
+      const newFavorite = {
+        userId: user.id,
+        hotelId: hotelId,
+      }
+      await axios.post("https://hooks.adaptable.app/favorites", newFavorite)
+      console.log('POST HOTEL')
+      fetchFavorites()
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
+
+  async function removeFavorites(favoriteId) {
+		try {
+			await axios.delete("http://localhost:3000/favorites/" + favoriteId)
+			fetchFavorites()
+		} catch (error) {
+			console.log(error.message)
+		}
+	}
+
+
   if (!hotels) {
     return <div className="hotelLoading"> Loading..</div>;
   }
@@ -40,6 +85,7 @@ function HomePage() {
     <>
       <div className="homePage">
         {hotels.map((hotel) => {
+          	const isFav = userFavorites.find((fav) => fav.id === hotel.id)
           return (
             <div key={hotel.title} className="hotelContainer">
               <img className="hotelImage" src={hotel.imgUrl} />
@@ -48,9 +94,11 @@ function HomePage() {
               </Link>
             <p className="hotel-address">{hotel.address}</p>
             <p className="hotel-rating">Rating: {hotel.rating}</p>
-              <button className="btn-favorite">
-                <PiHeartBold />
-              </button>
+            {isFav ? (
+							<button onClick={() => removeFavorites(isFav.id)}>❤️</button>
+						) : (
+							<button onClick={() => addToFavorites(hotel.id)}>💔</button>
+						)}
             </div>
           );
         })}

@@ -14,23 +14,34 @@ import "./App.css";
 import Layout from "./components/Layout";
 import LoginPage from "./pages/LoginPage";
 import SignupPage from "./pages/SignupPage";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
+
 
 function App() {
+  
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
-
+  
   function storeUser(userArg) {
     setUser(userArg);
     localStorage.setItem("user", JSON.stringify(userArg));
   }
-  return (
+
+
+  
+       
+
+    return (
     <div>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<HomePage />} />
+          <Route index element={<HomePage  user={user}/>} />
           <Route path="hotel/:title" element={<HotelDetails />} />
           <Route path="favorites" element={<Favorites />} />
-          <Route path="/login" element={<LoginPage storeUser={storeUser} />} />
+          <Route
+            path="/login"
+            element={<LoginPage storeUser={storeUser}/>}
+          />
           <Route path="/signup" element={<SignupPage />} />
         </Route>
       </Routes>
