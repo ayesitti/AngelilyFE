@@ -1,11 +1,12 @@
 import React from "react";
-import { Link, useLocation} from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import logo from "../assets/hooks-high-resolution-logo-color-on-transparent-background.png";
 import { HiUserCircle } from "react-icons/hi";
 import { ImHeart } from "react-icons/im";
 import { MdLocationSearching } from "react-icons/md";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { useState, useEffect, useRef } from "react";
+import { NavLink } from "react-router-dom";
 // function DropdownItem() {
 //   return (
 //     <ul className="dropdownItem">
@@ -18,49 +19,53 @@ import { useState, useEffect, useRef } from "react";
 //   );
 // }
 
-function NavBar() {
-  const history = useLocation()
-  console.log(history)
+function NavBar({ removeUser }) {
+  const user = JSON.parse(localStorage.getItem("user"));
+  const history = useLocation();
+  console.log(history);
   const [open, setOpen] = useState(false);
+
   let menuRef = useRef();
   useEffect(() => {
     let handler = (e) => {
-      if(!menuRef.current.contains(e.target)){
+      if (!menuRef.current.contains(e.target)) {
         setOpen(false);
         console.log(menuRef.current);
       }
-    }
-    document.addEventListener("mousedown", handler)
+    };
+    document.addEventListener("mousedown", handler);
     return () => {
-      document.removeEventListener("mousedown", handler)
-    }
-  })
+      document.removeEventListener("mousedown", handler);
+    };
+  });
   return (
     <>
       <nav className="navBar">
         {/* left */}
-        <div>
-          {" "}
-          <Link to={`/`}>
-            {" "}
-            <img src={logo} className="logo" alt="hookslogo" />
-          </Link>
-        </div>
+
+        <NavLink to={`/`}>
+          <img src={logo} className="logo" alt="hookslogo" />
+        </NavLink>
 
         {/* middle */}
-        {
-          history.pathname === '/' &&
-        <div className="search-bar">
-          <input type="search" placeholder="Hotel Name" />
-          <button className="searchBtn">
-            <MdLocationSearching />
-          </button>
-        </div>
-        }
+        {history.pathname === "/" && (
+          <div className="search-bar">
+            <input type="search" placeholder="Hotel Name" />
+            <button className="searchBtn">
+              <MdLocationSearching />
+            </button>
+          </div>
+        )}
+
+        <NavLink to={"/favorites"}>
+          {" "}
+          <div className="favorites-trigger">
+            <ImHeart />
+          </div>
+        </NavLink>
+
         {/* right */}
-        <div className="favorites-trigger">
-          <ImHeart />
-        </div>
+
         <div className="menu-container" ref={menuRef}>
           <div
             className="menu-trigger"
@@ -71,11 +76,11 @@ function NavBar() {
             <GiHamburgerMenu />
             <HiUserCircle />
           </div>
-          <div className={`dropdown-menu ${open ? 'active' : 'inactive'}`}>
-            <h3>
-              Hello, <span>{'User'}</span>
-            </h3>
-
+          {console.log(user)}
+          <div className={`dropdown-menu ${open ? "active" : "inactive"}`}>
+            
+            <h3>Hello, {user && <span> {user.username}</span>}</h3>
+            {!user && <NavLink to={"/signup"}></NavLink>}
             <ul className="dropdownItem">
               <Link to={"/login"}>
                 <li>
@@ -88,7 +93,7 @@ function NavBar() {
                   <h2>Sign up</h2>
                 </li>
               </Link>
-              <li><h2>Log out</h2></li>
+              <li>{user && <h2 onClick={removeUser}>Log out</h2>}</li>
             </ul>
           </div>
         </div>

@@ -25,6 +25,7 @@ function SignupPage() {
     <div className="form">
       <h2>Sign up</h2>
       <form  onSubmit={handleSubmit}>
+        
         <div className="user-name">
           <label htmlFor="username"> Username:</label>
           <input
