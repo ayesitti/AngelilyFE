@@ -21,6 +21,7 @@ function Favorites({user}) {
   useEffect(() => {
    fetchFavorites()
   }, []);
+  
   return (
     <div>
       
@@ -28,7 +29,10 @@ function Favorites({user}) {
       {userFavorites.map(el => {
         console.log(userFavorites, el, "favLily")
       return (
+        <>
       <p> {el.id}</p>
+      <p>{el.hotelId}</p>
+      </>
       )
       }
 
