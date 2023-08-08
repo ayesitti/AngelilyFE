@@ -23,11 +23,8 @@ function Favorites({user}) {
   }, []);
   return (
     <div>
-<<<<<<< HEAD
       
-=======
       <h1> Check fav</h1>
->>>>>>> a8a94ffc0e790512429986a8824869ca7d469481
       {userFavorites.map(el => {
         console.log(userFavorites, el, "favLily")
       return (
