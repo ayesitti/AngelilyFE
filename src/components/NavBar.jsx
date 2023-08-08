@@ -61,6 +61,7 @@ function NavBar({ removeUser }) {
           {" "}
           <div className="favorites-trigger">
             <ImHeart />
+           
           </div>
         </NavLink>
 

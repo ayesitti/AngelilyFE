@@ -22,7 +22,7 @@ function Favorites({user}) {
 
   return (
     <div>
-   
+      
       {userFavorites.map(el => {
         console.log(userFavorites, el, "favLily")
       return (
