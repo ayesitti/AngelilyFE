@@ -49,3 +49,12 @@ margin: 1rem;
   padding-left: 3.2rem;
   margin: 1rem;
 }
+.map{
+  width: 70%;
+  height: 25rem;
+}
+.cotainerMap{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

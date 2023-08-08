@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+
 import "leaflet/dist/leaflet.css";
 import { MapContainer, TileLayer, useMap, Marker, Popup } from 'react-leaflet'
 
@@ -16,8 +16,10 @@ function Map(props) {
 let {title} = props.oneHotel
                 
   return (
-    
-    <MapContainer center={arr} zoom={15} scrollWheelZoom={false} style={{height: '1000px'}}>
+    <div className="cotainerMap">
+
+   
+    <MapContainer center={arr} zoom={15} scrollWheelZoom={false} className="map">
   <TileLayer
     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -28,6 +30,7 @@ let {title} = props.oneHotel
     </Popup>
   </Marker>
 </MapContainer>
+  </div>
   )
 }
 
