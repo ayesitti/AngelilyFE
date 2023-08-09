@@ -7,7 +7,7 @@ function Note() {
       <span>Hellooo Here is my firstnote!!! </span>
       <div className="note-footer">
         <small>29/10/2023</small>
-        <RiDeleteBin2Line />
+        <RiDeleteBin2Line className="delete-icon" size="1.2rem"/>
       </div>
     </div>
   );

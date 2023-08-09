@@ -3,7 +3,7 @@
   justify-content: flex-start;
   align-items: center;
   flex-wrap: wrap;
- 
+
   padding: 1rem 3rem;
   border-radius: 1rem;
   gap: 1rem;
@@ -109,9 +109,8 @@
   transform: translateY(0);
   transition: var(--speed) ease;
 
-  -webkit-box-shadow: 5px 5px 15px 5px #000000; 
+  -webkit-box-shadow: 5px 5px 15px 5px #000000;
   box-shadow: 5px 5px 15px 5px #000000;
-    
 }
 
 .dropdown-menu.inactive {
@@ -160,10 +159,9 @@ h3 span {
   gap: 1rem;
   text-align: center;
   border: 15px solid rgb(157, 207, 166);
-  border-radius: 10%
-
+  border-radius: 10%;
 }
-.fav-cards{
+.fav-cards {
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -172,7 +170,6 @@ h3 span {
   border-radius: 1rem;
   gap: 1rem;
   background: whitesmoke;
-
 }
 .fav-hotelsdetails {
   height: 300px;
@@ -190,5 +187,19 @@ h3 span {
   border-radius: 1rem;
   gap: 1rem;
   background: whitesmoke;
-  }
-
+}
+.note {
+  background-color: #2c6f57;
+  margin-bottom: 0.8rem;
+  border-radius: 1rem;
+  padding: 1rem;
+  min-height: 170px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.note-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
