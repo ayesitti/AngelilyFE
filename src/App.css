@@ -163,9 +163,20 @@ h3 span {
   border-radius: 10%
 
 }
-.fav-hotelsdetails {
-  width: 20rem;
-  object-fit: cover;
-  border-radius: 2px;
+.fav-cards{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 1rem 3rem;
+  border-radius: 1rem;
+  gap: 1rem;
+  background: whitesmoke;
 
+}
+.fav-hotelsdetails {
+  height: 300px;
+  width: 300px;
+  object-fit: cover;
+  border-radius: 1rem;
 }

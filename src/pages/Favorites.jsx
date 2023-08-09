@@ -6,7 +6,7 @@ import axios from "axios";
 function Favorites({ user }) {
   const [userFavorites, setUserFavorites] = useState([]);
   const [favoriteHotelsDetails, setFavoriteHotelsDetails] = useState([]);
-
+//  1. new state variable:favoriteHotelsDetails --> to hold details of the fave hotels
   const fetchFavorites = async () => {
     try {
       const response = await axios.get(
@@ -18,11 +18,12 @@ function Favorites({ user }) {
       console.log(error);
     }
   };
-
+// fetchhoteldetails function fetches the details of a specific hotel using hotelId
   const fetchHotelDetails = async (hotelId) => {
     try {
       const response = await axios.get(`https://hooks.adaptable.app/hotels/${hotelId}`)
-     return response.data
+     return response.data;
+     
     } catch (error) {
       console.log(error);
       return "Oopss.. Failed to fetch hotel details"
@@ -33,6 +34,11 @@ function Favorites({ user }) {
     fetchFavorites();
   }, []);
 
+  // below using useEffect - this is like a minifunction that runs when something specific changes... for this instance, it runs whenever userFavorites changes.
+  // mapping over userfavorites - go through each item in the userFavorites, and get the hotel details.
+  //  using fetchHotelDetails func to fetch details for each hotel favorite.
+  //fetchHotelDetails function - like telling the API to tell me about this hotel
+  // using promise.all to  fetch details for multiple fave hotels simultaneously -- since we have this bunch of tasks to fetch hotel details, this makes sure all tasks are done and all the details come in one package.
   useEffect(() => {
     const fetchDetailsFavorites = async () => {
       const allDetails = userFavorites.map((favorite) => 
@@ -47,7 +53,7 @@ function Favorites({ user }) {
   }, [])
 
 
-
+console.log(favoriteHotelsDetails);
   return (
     <div>
       <h1> Hotel favorites</h1>
@@ -55,10 +61,13 @@ function Favorites({ user }) {
       {favoriteHotelsDetails.map((hotel) => {
         if (hotel) {
         return (
+          <div className="fav-cards">
           <div key={hotel.id}>
             <h2> {hotel.title} </h2>
-            <p>{hotel.info}</p>
+            
             <img className="fav-hotelsdetails" src={hotel.imgUrl} alt="" />
+            <p>{hotel.info}</p>
+          </div>
           </div>
           );
         }
