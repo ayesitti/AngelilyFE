@@ -140,20 +140,21 @@ function check () {
 	return (
 	<div>
 		
-	<h1 className='oneHotelTitle'> {oneHotel.title} </h1>
+		<h1 className='oneHotelTitle'> {oneHotel.title} </h1>
 		<p className='oneHotelAdress'>{ oneHotel.address}</p>
 		<div className='photosZone'>
 		<img src={oneHotel.imgUrl} alt="" className='mainPhotoOfHotel' />
-		{	check ()
-		}
+	
 			
 		
-		{ oneHotel.imgRooms.map(el => {
+			{ oneHotel.imgRooms.map(el => {
 			return (
 				<div key={el} >	
 			<img src={el} alt="" className='photosOfOneHotel' />
+			
 				</div>
 			)})}
+			
 			</div>
 {(isFav) ? (
                 <button onClick={() => removeFavorites(isFav.id)}>❤️</button>

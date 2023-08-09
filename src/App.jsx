@@ -16,7 +16,7 @@ import AddNote from "./components/AddNote";
 function App() {
   
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
-  const [note, setNote] = useState(JSON.parse(localStorage.getItem("note")))
+  //const [note, setNote] = useState(JSON.parse(localStorage.getItem("note")))
   
   function storeUser(userArg) {
     setUser(userArg);
@@ -28,9 +28,9 @@ function App() {
     
   }
 
-  function addNote (text)  {
-    console.log(text);
-  }
+  // function addNote (text)  {
+  //   console.log(text);
+  // }
 
   return (
     <div>
@@ -38,7 +38,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage  user={user}/>} />
-          <Route path="hotel/:id" element={<HotelDetails user={user}/>} />
+          <Route path="hotel/:title" element={<HotelDetails user={user}/>} />
           <Route path="favorites" element={<Favorites  user={user} note={note} handleAddNote={addNote} />} />
             
           <Route

@@ -79,23 +79,31 @@ function NavBar({ removeUser }) {
           </div>
           {console.log(user)}
           <div className={`dropdown-menu ${open ? "active" : "inactive"}`}>
-            
-            {user &&<h3>Hello, {user && <span> {user.username}</span>}</h3>}
-            {!user && <NavLink to={"/signup"}></NavLink>}
-            <ul className="dropdownItem">
-              <Link to={"/login"}>
+          {user && (
+              <h3>Hello, {user && <span> {user.username}</span>}</h3>
+            )}
+            {!user && (
+              <ul className="dropdownItem">
+                <Link to={"/login"}>
+                  <li>
+                    <h2>Log in</h2>
+                  </li>
+                </Link>
+                <Link to={"/signup"}>
+                  <li>
+                    <h2>Sign up</h2>
+                  </li>
+                </Link>
+              </ul>
+            )}
+            {user && (
+              <ul className="dropdownItem">
                 <li>
-                  <h2>Log in</h2>
+                  <h2 onClick={removeUser}>Log out</h2>
                 </li>
-              </Link>
-              <Link to={"/signup"}>
-                {" "}
-                <li>
-                  <h2>Sign up</h2>
-                </li>
-              </Link>
-              <li>{user && <h2 onClick={removeUser}>Log out</h2>}</li>
-            </ul>
+              </ul>
+            )}
+
           </div>
         </div>
       </nav>

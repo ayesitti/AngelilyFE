@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 import { PiHeartBold } from "react-icons/pi";
-
+import { PiHeartFill } from "react-icons/pi";
 const API_URL = "https://hooks.adaptable.app/hotels";
 
 function HomePage({ user }) {
@@ -88,7 +88,7 @@ function HomePage({ user }) {
               <p className="hotel-address">{hotel.address}</p>
               <p className="hotel-rating">Rating: {hotel.rating}</p>
               {isFav ? (
-                <button onClick={() => removeFavorites(isFav.id)}>❤️</button>
+                <button onClick={() => removeFavorites(isFav.id)}><PiHeartFill/></button>
               ) : (
                 <button onClick={() => {
                   if (user) {
@@ -96,7 +96,7 @@ function HomePage({ user }) {
                 } else {
                   navigate("/login")
                 }
-                }}>💔</button>
+                }}><PiHeartBold/></button>
               )}
             </div>
           );
