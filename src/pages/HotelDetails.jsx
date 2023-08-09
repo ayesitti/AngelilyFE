@@ -7,6 +7,7 @@ import useForm from "../useForm"
 import { Rating } from 'react-simple-star-rating'
 
 const baseURL =  "https://hooks.adaptable.app/hotels";
+const raitingURL = "https://hooks.adaptable.app/ratings"
 
 function HotelDetails() {
 	const [hotel, setHotel] = useState([]);
@@ -42,12 +43,17 @@ function HotelDetails() {
 
 	function handleSubmit(event) {
 		event.preventDefault()
-		// send the ratings as well
+		formData.score = rating;
+		axios.post(raitingURL, formData).then(() => {
+		//fetch
+		
+		console.log('raiting was poated', formData.score )
+		})
 	}
 	///stars
 	const handleRating = (rate) => {
 		setRating(rate)
-		console.log(rate)
+		console.log(rating)
 	  }
 	
 
@@ -83,11 +89,12 @@ function HotelDetails() {
       
         /* Available Props */
       />
-				<label htmlFor="name">Name: </label>
-				<textarea id="name" value={formData.comment} 
-				name="" cols="30" rows="10" onChange={handleChange}></textarea>
+				<label htmlFor="opinion">Name: </label>
+				<textarea id="comment" value={formData.comment} 
+				name="opinion" cols="30" rows="10" onChange={handleChange}></textarea>
 				
 		</div>
+		<button>Send</button>
 		</form>
 
 
