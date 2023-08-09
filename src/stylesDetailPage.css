@@ -58,3 +58,13 @@ margin: 1rem;
   justify-content: center;
   align-items: center;
 }
+.comments{
+  display:flex;
+  flex-direction: column;
+ width: 40rem;
+}
+
+.comments>button{
+  margin: 2rem;
+  background-color: blue;
+}

@@ -9,7 +9,7 @@ import { Rating } from 'react-simple-star-rating'
 const baseURL =  "https://hooks.adaptable.app/hotels";
 const raitingURL = "https://hooks.adaptable.app/ratings"
 
-function HotelDetails() {
+function HotelDetails({user}) {
 	const [hotel, setHotel] = useState([]);
 	const { title } = useParams();
 	const [oneHotel, setOneHotel] = useState(null);
@@ -36,10 +36,12 @@ function HotelDetails() {
 	/// comments
 	const [formData, handleChange] = useForm({
 		score: 0,
-		comment: ""
+		comment: "",
+		userId: user.id
 	})
 	const [rating, setRating] = useState(0)
 
+	console.log(user.id, 'check')
 
 	function handleSubmit(event) {
 		event.preventDefault()
@@ -81,7 +83,7 @@ function HotelDetails() {
 			</div>
 
 		<form onSubmit={handleSubmit}>
-		<div>
+		<div className='comments'>
 			<h1> You can share with us your opinion</h1>
 				<label htmlFor='starRating'>Rating:</label>
 			 <Rating
@@ -89,7 +91,7 @@ function HotelDetails() {
       
         /* Available Props */
       />
-				<label htmlFor="opinion">Name: </label>
+				<label htmlFor="opinion"> Your opinion: </label>
 				<textarea id="comment" value={formData.comment} 
 				name="opinion" cols="30" rows="10" onChange={handleChange}></textarea>
 				
