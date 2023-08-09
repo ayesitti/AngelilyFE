@@ -5,7 +5,7 @@ import Note from "../components/Note";
 import AddNote from "../components/AddNote";
 import { Link } from "react-router-dom";
 
-
+const favoritesURL = "https://hooks.adaptable.app/favorites"
 const notesURL = "https://hooks.adaptable.app/notes"
 function Favorites({user}) {
   const [userFavorites, setUserFavorites] = useState([]);
@@ -39,6 +39,15 @@ function Favorites({user}) {
     }
   };
 
+  const removeFavorite = async (favoriteId) => {
+    try {
+      await axios.delete (`${favoritesURL}/${favoriteId}`)
+      fetchFavorites()
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   useEffect(() => {
     fetchFavorites();
     // fetchNotes();
@@ -58,15 +67,18 @@ function Favorites({user}) {
           if (hotel) {
             return (
               <div key={hotel.id}>
+                
                 <div>
                   <img
                     className="fav-hotelsdetails"
                     src={hotel.imgUrl}
                     alt=""
                   />
+                  <button className="delete-button" onClick={() => removeFavorite(favorite.id)}>Remove</button>
                   <Link to={`/hotel/${hotel.title}`}><h2> {hotel.title} </h2></Link>
                   <p>{hotel.address}</p>
                   <Note favoriteId={favorite.id} user={user} />
+                  
                   <AddNote handleAddNote={handleAddNote}/>
                 </div>
               </div>
