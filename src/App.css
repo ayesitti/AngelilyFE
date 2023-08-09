@@ -3,7 +3,7 @@
   justify-content: flex-start;
   align-items: center;
   flex-wrap: wrap;
-  border: 3px solid #2c6f57;
+ 
   padding: 1rem 3rem;
   border-radius: 1rem;
   gap: 1rem;
@@ -185,7 +185,7 @@ h3 span {
   justify-content: flex-start;
   align-items: center;
   flex-wrap: wrap;
-  border: 3px solid #2c6f57;
+  /* border: 3px solid #2c6f57; */
   padding: 1rem 3rem;
   border-radius: 1rem;
   gap: 1rem;
