@@ -38,7 +38,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage  user={user}/>} />
-          <Route path="hotel/:title" element={<HotelDetails user={user}/>} />
+          <Route path="hotel/:id" element={<HotelDetails user={user}/>} />
           <Route path="favorites" element={<Favorites  user={user} note={note} handleAddNote={addNote} />} />
             
           <Route
