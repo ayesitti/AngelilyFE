@@ -55,18 +55,18 @@ function Favorites({ user }) {
 
 console.log(favoriteHotelsDetails);
   return (
-    <div>
-      <h1> Hotel favorites</h1>
+    <>
+    <div className="hotelfave-cards">
+      {/* <h1 className="head-favorites"> Hotel favorites</h1> */}
       {/* map through the array which holds the details of the fave hotels */}
       {favoriteHotelsDetails.map((hotel) => {
         if (hotel) {
         return (
-          <div className="fav-cards">
+          <div>
           <div key={hotel.id}>
-            <h2> {hotel.title} </h2>
-            
             <img className="fav-hotelsdetails" src={hotel.imgUrl} alt="" />
-            <p>{hotel.info}</p>
+            <h2> {hotel.title} </h2>
+            <p>{hotel.address}</p>
           </div>
           </div>
           );
@@ -74,6 +74,7 @@ console.log(favoriteHotelsDetails);
         return 'Sorry, unknown hotel'
       })}
     </div>
+    </>
   );
 }
 
