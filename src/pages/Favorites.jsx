@@ -3,6 +3,7 @@ import axios from "axios";
 import { Navigate } from "react-router-dom";
 import Note from "../components/Note";
 import AddNote from "../components/AddNote";
+import { Link } from "react-router-dom";
 
 
 const notesURL = "https://hooks.adaptable.app/notes"
@@ -62,10 +63,10 @@ function Favorites({user}) {
                     src={hotel.imgUrl}
                     alt=""
                   />
-                  <h2> {hotel.title} </h2>
+                  <Link to={`/hotel/${hotel.title}`}><h2> {hotel.title} </h2></Link>
                   <p>{hotel.address}</p>
                   <Note favoriteId={favorite.id} user={user} />
-                  {/* <AddNote /> */}
+                  <AddNote  />
                 </div>
               </div>
             );

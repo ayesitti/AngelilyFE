@@ -4,6 +4,9 @@ const notesURL = "https://hooks.adaptable.app/notes";
 function AddNote() {
   const [noteText, setNoteText] = useState("");
 
+  const handleChange = (event) => {
+    setNoteText(event.target.value)
+  }
   const handleSaveClick = async (event) => {
     event.preventDefault();
 
