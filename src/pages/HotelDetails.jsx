@@ -83,18 +83,18 @@ function HotelDetails({user}) {
 	<div>
 		
 		<h1 className='oneHotelTitle'> {oneHotel.title} </h1>
+		<p className='oneHotelAdress'>{ oneHotel.info}</p>
 		<p className='oneHotelAdress'>{ oneHotel.address}</p>
 		<div className='photosZone'>
 		<img src={oneHotel.imgUrl} alt="" className='mainPhotoOfHotel' />
-	
-			
-		
-			{ oneHotel.imgRooms.map(el => {
+	{ oneHotel.imgRooms.map(el => {
 			return (
 				<div key={el} >	
 			<img src={el} alt="" className='photosOfOneHotel' />
+			
 				</div>
 			)})}
+			
 			</div>
 
 		<form onSubmit={handleSubmit} className='formComments'>

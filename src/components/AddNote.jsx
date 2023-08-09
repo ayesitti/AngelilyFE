@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 const notesURL = "https://hooks.adaptable.app/notes";
-function AddNote() {
+function AddNote({handleAddNote}) {
   const [noteText, setNoteText] = useState("");
 
   const handleChange = (event) => {
@@ -9,6 +9,7 @@ function AddNote() {
   }
   const handleSaveClick = async (event) => {
     event.preventDefault();
+    handleAddNote()
 
     try {
       const noteToAdd = {

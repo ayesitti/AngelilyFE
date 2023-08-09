@@ -53,6 +53,7 @@ function Favorites({user}) {
     <>
       <div className="hotelfave-cards">
         {userFavorites.map((favorite) => {
+          
           const {hotel} = favorite 
           if (hotel) {
             return (
@@ -66,7 +67,7 @@ function Favorites({user}) {
                   <Link to={`/hotel/${hotel.title}`}><h2> {hotel.title} </h2></Link>
                   <p>{hotel.address}</p>
                   <Note favoriteId={favorite.id} user={user} />
-                  <AddNote  />
+                  <AddNote handleAddNote={handleAddNote}/>
                 </div>
               </div>
             );
