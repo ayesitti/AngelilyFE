@@ -4,6 +4,8 @@ import { Navigate } from "react-router-dom";
 import Note from "../components/Note";
 import AddNote from "../components/AddNote";
 
+
+const notesURL = "https://hooks.adaptable.app/notes"
 function Favorites({user}) {
   const [userFavorites, setUserFavorites] = useState([]);
   // const [notes, setNotes] = useState([]);
@@ -11,13 +13,17 @@ function Favorites({user}) {
   // const fetchNotes = async () => {
   //   try {
   //     // Added _expand=hotel to get hotel infos
-  //     const response = await axios.get(`https://hooks.adaptable.app/notes`);
+  //     const response = await axios.get(notesURL);
   //     setNotes(response.data);
   //     console.log(response.data, "my notesssss");
   //   } catch (error) {
   //     console.log(error);
   //   }
   // };
+
+  const handleAddNote = async () => {
+
+  }
 
   const fetchFavorites = async () => {
     try {
@@ -45,7 +51,8 @@ function Favorites({user}) {
   return (
     <>
       <div className="hotelfave-cards">
-        {userFavorites.map(({ hotel }) => {
+        {userFavorites.map((favorite) => {
+          const {hotel} = favorite 
           if (hotel) {
             return (
               <div key={hotel.id}>
@@ -57,8 +64,8 @@ function Favorites({user}) {
                   />
                   <h2> {hotel.title} </h2>
                   <p>{hotel.address}</p>
-                  <Note />
-                  <AddNote />
+                  <Note favoriteId={favorite.id} user={user} />
+                  {/* <AddNote /> */}
                 </div>
               </div>
             );
