@@ -50,7 +50,6 @@ function HomePage({ user }) {
       const response = await axios.get(
         `https://hooks.adaptable.app/favorites?userId=${user.id}`
       );
-      console.log(response.data, "TEST");
       setUserFavorites(response.data);
     } catch (error) {
       console.log(error);
@@ -64,7 +63,6 @@ function HomePage({ user }) {
   async function removeFavorites(favoriteId) {
     try {
       await axios.delete("https://hooks.adaptable.app/favorites/" + favoriteId);
-      console.log(favoriteId, 666666666);
       fetchFavorites();
     } catch (error) {
       console.log(error.message);
@@ -80,11 +78,11 @@ function HomePage({ user }) {
       <div className="homePage">
         {hotels.map((hotel) => {
           const isFav = userFavorites.find((fav) => fav.hotelId === hotel.id);
-          console.log(isFav, "5555555");
+       
           return (
             <div key={hotel.title} className="hotelContainer">
               <img className="hotelImage" src={hotel.imgUrl} />
-              <Link to={`/hotel/${hotel.title}`}>
+              <Link to={`/hotel/${hotel.id}`}>
                 <h2 className="hotel-name">{hotel.title}</h2>{" "}
               </Link>
               <p className="hotel-address">{hotel.address}</p>
