@@ -1,23 +1,24 @@
 .homePage {
-  width: 100%;
   display: flex;
-  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
   flex-wrap: wrap;
-  gap: 5rem;
-  justify-content: center;
-  align-content: center;
-  margin-top: 5rem;
+  border: 3px solid #2c6f57;
+  padding: 1rem 3rem;
+  border-radius: 1rem;
+  gap: 1rem;
   background: whitesmoke;
 }
-.hotelContainer {
+/* .hotelContainer {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+  flex-wrap: wrap;
   border: 3px solid #2c6f57;
-  padding: 1rem;
+  padding: 1rem 3rem;
   border-radius: 1rem;
-}
+  gap: 1rem;
+} */
 .ButtonContainerHomePage {
   display: flex;
   justify-content: center;
@@ -61,9 +62,10 @@
 }
 
 .hotelImage {
-  width: 20rem;
+  height: 300px;
+  width: 300px;
   object-fit: cover;
-  border-radius: 3px;
+  border-radius: 1rem;
 }
 .hotel-name {
   font-size: 1rem;
