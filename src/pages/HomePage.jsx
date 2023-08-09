@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 import { PiHeartBold } from "react-icons/pi";
@@ -10,7 +10,7 @@ function HomePage({ user }) {
   const [hotels, setHotels] = useState([]);
   const [page, setPage] = useState(1);
   const [userFavorites, setUserFavorites] = useState([]);
-
+  const navigate = useNavigate()
   async function fetchAllHotels(page) {
     try {
       const response = await axios.get(`${API_URL}?_page=${page}&_limit=12`);
@@ -92,7 +92,13 @@ function HomePage({ user }) {
               {isFav ? (
                 <button onClick={() => removeFavorites(isFav.id)}>❤️</button>
               ) : (
-                <button onClick={() => addToFavorites(hotel.id)}>💔</button>
+                <button onClick={() => {
+                  if (user) {
+                  addToFavorites(hotel.id)
+                } else {
+                  navigate("/login")
+                }
+                }}>💔</button>
               )}
             </div>
           );

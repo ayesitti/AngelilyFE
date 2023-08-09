@@ -25,6 +25,7 @@ function App() {
     localStorage.removeItem("user")
     
   }
+  
   return (
     <div>
       <NavBar removeUser={removeUser} />

@@ -80,7 +80,7 @@ function NavBar({ removeUser }) {
           {console.log(user)}
           <div className={`dropdown-menu ${open ? "active" : "inactive"}`}>
             
-            <h3>Hello, {user && <span> {user.username}</span>}</h3>
+            {user &&<h3>Hello, {user && <span> {user.username}</span>}</h3>}
             {!user && <NavLink to={"/signup"}></NavLink>}
             <ul className="dropdownItem">
               <Link to={"/login"}>
