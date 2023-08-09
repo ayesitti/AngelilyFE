@@ -50,6 +50,7 @@ margin: 1rem;
   margin: 1rem;
 }
 .map{
+
   width: 70%;
   height: 25rem;
 }
@@ -57,6 +58,7 @@ margin: 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 3rem;
 }
 .comments{
   display:flex;
@@ -64,7 +66,30 @@ margin: 1rem;
  width: 40rem;
 }
 
-.comments>button{
-  margin: 2rem;
-  background-color: blue;
+.buttonComents{
+  margin: 1rem;
+  width: 5rem;
+  box-shadow: 1px 1px 5px 1px #000000;
+}
+.formComments{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.score{
+font-size: large;
+size: 1rem;
+
+}
+.allOpinions{
+  display: flex;
+  flex-direction: column;
+  margin-left: 2rem;
+  
+}
+.userIcon {
+  width: 3rem;
+  margin-top: 1rem;
+  margin-bottom: .3rem;
+
 }

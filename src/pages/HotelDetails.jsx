@@ -5,7 +5,7 @@ import { useEffect, useState } from "react"
 import Map from '../components/Map'
 import useForm from "../useForm"
 import { Rating } from 'react-simple-star-rating'
-
+import {FaUser} from "react-icons/fa"
 const baseURL =  "https://hooks.adaptable.app/hotels";
 const raitingURL = "https://hooks.adaptable.app/ratings"
 
@@ -31,9 +31,24 @@ function HotelDetails({user}) {
   
 	useEffect(() => {
 		fetchHotels();
+		fetchComments()
 	}, []);
-	
-	/// comments
+
+	// comments
+	const [comments, setComments] = useState([]);
+
+	const fetchComments = async () => {
+		try {
+			const response = await axios.get(
+			  `https://hooks.adaptable.app/ratings`
+			);
+			setComments(response.data);
+			
+		  } catch (error) {
+			console.log(error);
+		  }
+	}
+
 	const [formData, handleChange] = useForm({
 		score: 0,
 		comment: "",
@@ -48,17 +63,17 @@ function HotelDetails({user}) {
 		formData.score = rating;
 		axios.post(raitingURL, formData).then(() => {
 		//fetch
-		
-		console.log('raiting was poated', formData.score )
+		fetchComments()
+		formData.comment =""
+		console.log('rating was poated')
 		})
 	}
 	///stars
 	const handleRating = (rate) => {
 		setRating(rate)
-		console.log(rating)
 	  }
 	
-
+	  console.log(comments, "TEST");
 
 	if (!hotel.length) {
 	return <div>Loading...</div>;
@@ -71,7 +86,7 @@ function HotelDetails({user}) {
 		<p className='oneHotelAdress'>{ oneHotel.address}</p>
 		<div className='photosZone'>
 		<img src={oneHotel.imgUrl} alt="" className='mainPhotoOfHotel' />
-		{console.log(oneHotel, "check")}
+	
 			
 		
 			{ oneHotel.imgRooms.map(el => {
@@ -82,7 +97,7 @@ function HotelDetails({user}) {
 			)})}
 			</div>
 
-		<form onSubmit={handleSubmit}>
+		<form onSubmit={handleSubmit} className='formComments'>
 		<div className='comments'>
 			<h1> You can share with us your opinion</h1>
 				<label htmlFor='starRating'>Rating:</label>
@@ -95,12 +110,32 @@ function HotelDetails({user}) {
 				<textarea id="comment" value={formData.comment} 
 				name="opinion" cols="30" rows="10" onChange={handleChange}></textarea>
 				
+		<div>
+		<button className='buttonComents'>Send</button>
 		</div>
-		<button>Send</button>
+		</div>
 		</form>
+		
+				
+		<div>
+	{comments.map(el => {
+		{console.log(el, "now")}
+			return (
+				<div key={el.id} className='allOpinions'>	
+			<FaUser className='userIcon'/>
+			<div> 
+			
+			<p className='score'> ⭐ {el.score}  </p>
+			</div>
+			<p> {el.comment}</p>
+				</div>
+			)})}
+			</div>
 
 
 		<Map oneHotel={oneHotel}/>
+
+
 	</div>
 	);
 }
