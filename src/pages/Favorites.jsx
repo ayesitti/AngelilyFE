@@ -46,7 +46,7 @@ function Favorites({ user }) {
                   />
                   <h2> {hotel.title} </h2>
                   <p>{hotel.address}</p>
-                  {/* <Note /> */}
+                  <Note />
                 </div>
               </div>
             );
