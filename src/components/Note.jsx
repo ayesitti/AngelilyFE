@@ -5,11 +5,12 @@ import axios from "axios";
 
 function Note({ user, favoriteId }) {
     const [note, setNote] = useState([])
+    console.log(favoriteId);
 
     const fetchNotes = async () => {
 		try {
 			const response = await axios.get(
-			  `https://hooks.adaptable.app/notes`
+			  `https://hooks.adaptable.app/notes?userId=${user.id}&favoriteId=${favoriteId}`
 			);
 			setNote(response.data);
             console.log(response.data);
@@ -20,7 +21,10 @@ function Note({ user, favoriteId }) {
 	}
     useEffect(() => {
 		fetchNotes();
-	}, []);
+	}, [user.id, favoriteId]);
+
+    //const handleNoteDelete 
+
     if (!note) {
         return "Create a note..";
       }
@@ -39,10 +43,18 @@ const handleChange = (e) => {
 
   return (
     <div className="note" > 
-      <span >
+      {/* <span >
         Notes will appear here :) {" "}
 
-      </span>
+      </span> */}
+      <div>
+        {note.map((note) => (
+            <div key={note.id} className="note-item"> 
+            <p>{note.text}</p>
+            <small>{note.date}</small>
+            </div>
+        ))}
+      </div>
       <div className="note-footer">
         <small>29/10/2023</small>
          

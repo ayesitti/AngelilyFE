@@ -50,7 +50,7 @@ function NavBar({ removeUser }) {
         {/* middle */}
         {history.pathname === "/" && (
           <div className="search-bar">
-            <input type="search" placeholder="Hotel Name" />
+            <input className="search-bar-text" type="search" placeholder="Hotel Name" />
             <button className="searchBtn">
               <MdLocationSearching />
             </button>

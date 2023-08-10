@@ -47,8 +47,8 @@
 }
 .search-bar-text {
   font-size: 1rem;
-  font-weight: 600;
-  border-right:  1px solid var(--main-tone);
+  font-weight: lighter;
+  border-right: 1px solid var(--main-tone);
 }
 .menu-container {
   display: flex;
