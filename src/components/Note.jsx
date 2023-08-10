@@ -5,7 +5,8 @@ import axios from "axios";
 
 function Note({ user, favoriteId, shouldFetch, setShouldFetch }) {
   const [notes, setNotes] = useState([]);
-  let editNote;
+  const [editingNoteId, setEditingNoteId] = useState(null);
+  //   let editNote;
 
   const fetchNotes = async () => {
     try {
@@ -42,35 +43,34 @@ function Note({ user, favoriteId, shouldFetch, setShouldFetch }) {
     }
   };
 
-  const handleEditText = async (id) => {
-    try {
-      await axios
-        .get(`https://hooks.adaptable.app/notes/${id}`)
-        .then((response) => {
-          editNote = response.data;
-          console.log(editNote);
-        });
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  //   const handleChange = (e) => {
-  //     console.log(e.target.value);
+  //   const handleEditText = async (id) => {
+  //     try {
+  //       await axios
+  //         .get(`https://hooks.adaptable.app/notes/${id}`)
+  //         .then((response) => {
+  //           editNote = response.data;
+  //           console.log(editNote);
+  //         });
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
   //   };
 
+  const handleChange = (e) => {
+    console.log(e.target.value);
+  };
+
   return notes.map((note) => (
+    // {editingNoteId === note.id ?  (
     <div className="note">
       <div>
-        {/* {console.log(notes)} */}
-
         <div key={note.id} className="note-item">
           <p>{note.note}</p>
         </div>
       </div>
       <div className="note-footer">
         <small>29/10/2023</small>
-        <button onClick={() => handleEditText(note.id)}>Edit</button>
+        <button onClick={() => setEditingNoteId(note.id)}>Edit</button>
         <RiDeleteBin2Line
           className="delete-icon"
           size="1.2rem"
@@ -82,12 +82,3 @@ function Note({ user, favoriteId, shouldFetch, setShouldFetch }) {
 }
 
 export default Note;
-
-/**
- * We need a state to store the note from the API
- * We need a useEffect to fetch a note with the userId and the favoriteId
- */
-
-//   function changeColor(e) {
-//     e.target.style.backgroundColor = "yellow";
-//   }

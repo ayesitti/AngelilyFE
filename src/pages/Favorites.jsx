@@ -5,6 +5,7 @@ import Note from "../components/Note";
 import AddNote from "../components/AddNote";
 import { Link } from "react-router-dom";
 
+
 const favoritesURL = "https://hooks.adaptable.app/favorites";
 const notesURL = "https://hooks.adaptable.app/notes";
 function Favorites({ user }) {
