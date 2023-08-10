@@ -1,25 +1,28 @@
 import React, { useState } from "react";
+import axios from "axios";
 
 const notesURL = "https://hooks.adaptable.app/notes";
-function AddNote({handleAddNote}) {
+function AddNote({ handleAddNote, favoriteId, userId, hotelId, setShouldFetch }) {
   const [noteText, setNoteText] = useState("");
 
   const handleChange = (event) => {
-    setNoteText(event.target.value)
-  }
+    setNoteText(event.target.value);
+  };
   const handleSaveClick = async (event) => {
     event.preventDefault();
-    handleAddNote()
+    handleAddNote();
 
     try {
       const noteToAdd = {
+        userId: Number(userId),
         hotelId: Number(hotelId),
         favoriteId: Number(favoriteId),
         note: noteText,
       };
       const response = await axios.post(`${notesURL}`, noteToAdd);
       console.log(response);
-      fetchNotes();
+      //   fetchNotes();
+      setShouldFetch(true)
       setNoteText("");
     } catch (error) {
       console.log(error);
@@ -35,7 +38,7 @@ function AddNote({handleAddNote}) {
             rows="8"
             placeholder="Type to add a note.."
             value={noteText}
-            onChange={(e) => setNoteText(e.target.value)}
+            onChange={handleChange}
           ></textarea>
         </div>
         <div className="note-footer">
