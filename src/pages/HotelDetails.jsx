@@ -10,39 +10,45 @@ const baseURL =  "https://hooks.adaptable.app/hotels";
 const raitingURL = "https://hooks.adaptable.app/ratings"
 
 function HotelDetails({user}) {
-	const [hotel, setHotel] = useState([]);
-	const { title } = useParams();
+	
+	const {id} = useParams();
 	const [oneHotel, setOneHotel] = useState(null);
-
+	//const [isFav, setIsFav] = useState(null);
+	let isFav;
   
-	async function fetchHotels() {
+	// feyching our one hotel
+	const fetchHotel = async () => {
 		try {
-		const response = await axios.get(`${baseURL}`);
-		await setHotel(response.data);
-		await findHotel(response.data)
-	} catch (error) {
-		console.log(error);
-	}}
-  
-	async function findHotel(hotelData) {
-	const foundHotel = hotelData.find((el) => el.title === title);
-	setOneHotel(foundHotel);
+			console.log(`${baseURL}/${id}`)
+			return await axios.get(
+			  `${baseURL}/${id}` //2
+			).then(res => {
+				console.log(res, 'restest')
+			setOneHotel(res.data);
+			});
+		  } catch (error) {
+			console.error(error);
+		  }
 	}
-  
 	useEffect(() => {
-		fetchHotels();
+		fetchHotel()
 		fetchComments()
+		fetchFavorites()
 	}, []);
 
+
+
 	// comments
-	const [comments, setComments] = useState([]);
+const [comments, setComments] = useState([]);
 
 	const fetchComments = async () => {
 		try {
 			const response = await axios.get(
 			  `https://hooks.adaptable.app/ratings`
-			);
-			setComments(response.data);
+			).then(response => {
+				setComments(response.data);
+			})
+			
 			
 		  } catch (error) {
 			console.log(error);
@@ -56,7 +62,6 @@ function HotelDetails({user}) {
 	})
 	const [rating, setRating] = useState(0)
 
-	console.log(user.id, 'check')
 
 	function handleSubmit(event) {
 		event.preventDefault()
@@ -73,21 +78,76 @@ function HotelDetails({user}) {
 		setRating(rate)
 	  }
 	
-	  console.log(comments, "TEST");
 
-	if (!hotel.length) {
-	return <div>Loading...</div>;
+	
+	// favorites
+	
+	const [userFavorites, setUserFavorites] = useState([]);
+
+	const fetchFavorites = async () => {
+		try {
+			console.log(`https://hooks.adaptable.app/favorites?userId=${user.id}`)
+			return await axios.get(
+			`https://hooks.adaptable.app/favorites?userId=${user.id}`
+			).then(response => {
+				setUserFavorites(response.data);
+				console.log(isFav, 'isFav')
+
+			console.log(response, 'reesponstetest')
+			})
+			
+		} catch (error) {
+			console.log(error);
+		}
+	};
+	
+	console.log(userFavorites, 'список фаворит')
+	  
+	  async function addToFavorites(hotelId) {
+		  try {
+			  const newFavorite = {
+				  userId: user.id,
+				  hotelId: hotelId,
+		  };
+		  await axios.post("https://hooks.adaptable.app/favorites", newFavorite);
+		  console.log("POST HOTEL");
+		  fetchFavorites();
+		} catch (error) {
+		  console.log(error.message);
+		}
+	  }
+	  
+	  
+	  
+	  async function removeFavorites(favoriteId) {
+		try {
+			await axios.delete("https://hooks.adaptable.app/favorites/" + favoriteId);
+		  fetchFavorites();
+		} catch (error) {
+		  console.log(error.message);
+		}
 	}
-  
+
+function check () {
+	isFav = userFavorites.find((fav) => fav.hotelId === oneHotel.id)
+}
+
+
+
+	if (!oneHotel|| !comments) {
+		return <div>Loading...</div>;
+	}
 	return (
 	<div>
 		
 		<h1 className='oneHotelTitle'> {oneHotel.title} </h1>
-		<p className='oneHotelAdress'>{ oneHotel.info}</p>
 		<p className='oneHotelAdress'>{ oneHotel.address}</p>
 		<div className='photosZone'>
 		<img src={oneHotel.imgUrl} alt="" className='mainPhotoOfHotel' />
-	{ oneHotel.imgRooms.map(el => {
+	
+			
+		
+			{ oneHotel.imgRooms.map(el => {
 			return (
 				<div key={el} >	
 			<img src={el} alt="" className='photosOfOneHotel' />
@@ -96,7 +156,19 @@ function HotelDetails({user}) {
 			)})}
 			
 			</div>
-
+{(isFav) ? (
+                <button onClick={() => removeFavorites(isFav.id)}>❤️</button>
+              ) : (
+                <button onClick={() => {
+                  if (user) {
+                  addToFavorites(oneHotel.id)
+                } else {
+                  navigate("/login")
+                }
+                }}>💔</button>
+              )}
+			
+			
 		<form onSubmit={handleSubmit} className='formComments'>
 		<div className='comments'>
 			<h1> You can share with us your opinion</h1>
@@ -104,7 +176,7 @@ function HotelDetails({user}) {
 			 <Rating
         onClick={handleRating}
       
-        /* Available Props */
+     
       />
 				<label htmlFor="opinion"> Your opinion: </label>
 				<textarea id="comment" value={formData.comment} 
@@ -135,7 +207,7 @@ function HotelDetails({user}) {
 
 		<Map oneHotel={oneHotel}/>
 
-
+		
 	</div>
 	);
 }
