@@ -12,6 +12,10 @@ function Note({ user, favoriteId }) {
 			const response = await axios.get(
 			  `https://hooks.adaptable.app/notes?userId=${user.id}&favoriteId=${favoriteId}`
 			);
+            if (!response.data.length) {
+                await axios.post(`https://hooks.adaptable.app/notes`, {userId: user.id, favoriteId: favoriteId})
+                return
+            }
 			setNote(response.data);
             console.log(response.data);
 			
@@ -21,12 +25,12 @@ function Note({ user, favoriteId }) {
 	}
     useEffect(() => {
 		fetchNotes();
-	}, [user.id, favoriteId]);
+	}, []);
 
     //const handleNoteDelete 
 
-    if (!note) {
-        return "Create a note..";
+    if (note.length === 0) {
+        return "Add a note..";
       }
   /**
    * We need a state to store the note from the API
@@ -35,7 +39,7 @@ function Note({ user, favoriteId }) {
 
 //   function changeColor(e) {
 //     e.target.style.backgroundColor = "yellow";
-//   } add in div classname:contentEditable={true} onBlur={changeColor}
+//   } 
 const handleChange = (e) => {
     console.log(e.target.value);
 }
@@ -48,12 +52,12 @@ const handleChange = (e) => {
 
       </span> */}
       <div>
-        {note.map((note) => (
+       
             <div key={note.id} className="note-item"> 
             <p>{note.text}</p>
             <small>{note.date}</small>
             </div>
-        ))}
+       
       </div>
       <div className="note-footer">
         <small>29/10/2023</small>
@@ -67,3 +71,11 @@ const handleChange = (e) => {
 }
 
 export default Note;
+
+
+// {note.map((note) => (
+//     <div key={note.id} className="note-item"> 
+//     <p>{note.text}</p>
+//     <small>{note.date}</small>
+//     </div>
+// ))}

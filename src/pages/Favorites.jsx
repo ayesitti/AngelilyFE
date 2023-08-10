@@ -9,18 +9,7 @@ const favoritesURL = "https://hooks.adaptable.app/favorites"
 const notesURL = "https://hooks.adaptable.app/notes"
 function Favorites({user}) {
   const [userFavorites, setUserFavorites] = useState([]);
-  // const [notes, setNotes] = useState([]);
 
-  // const fetchNotes = async () => {
-  //   try {
-  //     // Added _expand=hotel to get hotel infos
-  //     const response = await axios.get(notesURL);
-  //     setNotes(response.data);
-  //     console.log(response.data, "my notesssss");
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
 
   const handleAddNote = async () => {
 
@@ -97,3 +86,17 @@ function Favorites({user}) {
 }
 
 export default Favorites;
+
+
+  // const [notes, setNotes] = useState([]);
+
+  // const fetchNotes = async () => {
+  //   try {
+  //     // Added _expand=hotel to get hotel infos
+  //     const response = await axios.get(notesURL);
+  //     setNotes(response.data);
+  //     console.log(response.data, "my notesssss");
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
