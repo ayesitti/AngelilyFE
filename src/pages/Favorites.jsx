@@ -52,19 +52,20 @@ function Favorites({ user }) {
           const { hotel } = favorite;
           if (hotel) {
             return (
-              <div key={hotel.id}>
+              <div key={hotel.id} className="eachCard">
                 <div>
                   <img
                     className="fav-hotelsdetails"
                     src={hotel.imgUrl}
                     alt=""
                   />
-                  <button
+                 <div> <button
                     className="delete-button"
                     onClick={() => removeFavorite(favorite.id)}
                   >
                     Remove
                   </button>
+                  </div> 
                   <Link to={`/hotel/${hotel.title}`}>
                     <h2> {hotel.title} </h2>
                   </Link>
