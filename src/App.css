@@ -118,7 +118,11 @@ top:2.2rem;
   transform: translate(-10px, 10px);
 
 }
-
+.container{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
 
 
 .hotel-name {
