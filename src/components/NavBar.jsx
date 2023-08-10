@@ -48,14 +48,7 @@ function NavBar({ removeUser }) {
         </NavLink>
 
         {/* middle */}
-        {history.pathname === "/" && (
-          <div className="search-bar">
-            <input className="search-bar-text" type="search" placeholder="Hotel Name" />
-            <button className="searchBtn">
-              <MdLocationSearching />
-            </button>
-          </div>
-        )}
+
 
         <NavLink to={"/favorites"}>
           {" "}

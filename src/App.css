@@ -1,14 +1,20 @@
-.homePage {
+/*.homePage {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   flex-wrap: wrap;
 
-  padding: 1rem 3rem;
+  padding: 4rem 3rem;
   border-radius: 1rem;
   gap: 1rem;
   background: whitesmoke;
-}
+}*/
+.homePage{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 колонки */
+  grid-template-rows: repeat(3, 1fr); /* 3 строки */
+  gap: 10px; /* промежуток между элементами */
+  margin-top: 3.5rem;}
 /* .hotelContainer {
   display: flex;
   justify-content: flex-start;
@@ -37,6 +43,9 @@
   padding-top: 2rem;
 }
 .search-bar {
+  position: absolute;
+  left: 0;
+  top: 7rem;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -68,7 +77,36 @@
   width: 300px;
   object-fit: cover;
   border-radius: 1rem;
+  z-index: -1;
 }
+.imgHotelContainer{
+  position: relative;
+  height: 300px;
+  width: 300px;
+  object-fit: cover;
+  border-radius: 1rem;
+}
+.heart {
+  font-size: 2rem;
+  position:absolute;
+  right: 0px;
+  top: 0;
+  z-index: 3;
+  transform: translate(-10px, 10px);
+  color: rgb(15, 143, 15)
+}
+.heart2{
+  font-size: 2rem;
+  position:absolute;
+  right: 0px;
+  top: 0;
+  z-index: 3;
+  transform: translate(-10px, 10px);
+
+}
+
+
+
 .hotel-name {
   font-size: 1rem;
   font-weight: bolder;

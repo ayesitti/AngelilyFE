@@ -128,9 +128,11 @@ const [comments, setComments] = useState([]);
 		}
 	}
 
-function check () {
+ function check () {
 	isFav = userFavorites.find((fav) => fav.hotelId === oneHotel.id)
-}
+	// return isFav
+ }
+check()
 
 
 
@@ -140,14 +142,14 @@ function check () {
 	return (
 	<div>
 		
-		<h1 className='oneHotelTitle'> {oneHotel.title} </h1>
+	<h1 className='oneHotelTitle'> {oneHotel.title} </h1>
 		<p className='oneHotelAdress'>{ oneHotel.address}</p>
 		<div className='photosZone'>
 		<img src={oneHotel.imgUrl} alt="" className='mainPhotoOfHotel' />
-	
+		
 			
 		
-			{ oneHotel.imgRooms.map(el => {
+		{ oneHotel.imgRooms.map(el => {
 			return (
 				<div key={el} >	
 			<img src={el} alt="" className='photosOfOneHotel' />
@@ -193,7 +195,7 @@ function check () {
 	{comments.map(el => {
 		{console.log(el, "now")}
 			return (
-				<div key={el.id} className='allOpinions'>	
+				<div key={el.id} className='allOpinions grid-item'>	
 			<FaUser className='userIcon'/>
 			<div> 
 			

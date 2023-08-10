@@ -11,9 +11,12 @@ function HomePage({ user }) {
   const [page, setPage] = useState(1);
   const [userFavorites, setUserFavorites] = useState([]);
   const navigate = useNavigate()
-  async function fetchAllHotels(page) {
+
+  async function fetchAllHotels(page, str = "") {
     try {
-      const response = await axios.get(`${API_URL}?_page=${page}&_limit=12`);
+      const response = await axios.get(`${API_URL}?_page=${page}&_limit=12&q=${str}`);
+
+		
       setHotels(response.data);
     } catch (error) {
       console.log(error);
@@ -68,6 +71,11 @@ function HomePage({ user }) {
       console.log(error.message);
     }
   }
+  function handleSearch(event) {
+    fetchAllHotels(page, event.target.value)
+	}
+
+
 
   if (!hotels) {
     return <div className="hotelLoading"> Loading..</div>;
@@ -76,19 +84,23 @@ function HomePage({ user }) {
   return (
     <>
       <div className="homePage">
+      { (
+          <div className="search-bar">
+            <input className="search-bar-text" type="search" placeholder="Hotel Name" 
+            onChange={handleSearch}/>
+            <button className="searchBtn">
+            </button>
+          </div>
+        )}
         {hotels.map((hotel) => {
           const isFav = userFavorites.find((fav) => fav.hotelId === hotel.id);
        
           return (
             <div key={hotel.title} className="hotelContainer">
-              <img className="hotelImage" src={hotel.imgUrl} />
-              <Link to={`/hotel/${hotel.id}`}>
-                <h2 className="hotel-name">{hotel.title}</h2>{" "}
-              </Link>
-              <p className="hotel-address">{hotel.address}</p>
-              <p className="hotel-rating">Rating: {hotel.rating}</p>
+            <div className="imgHotelContainer">  <img className="hotelImage" src={hotel.imgUrl} />
+             
               {isFav ? (
-                <button onClick={() => removeFavorites(isFav.id)}><PiHeartFill/></button>
+                <button onClick={() => removeFavorites(isFav.id)}><PiHeartFill className="heart"/></button>
               ) : (
                 <button onClick={() => {
                   if (user) {
@@ -96,8 +108,15 @@ function HomePage({ user }) {
                 } else {
                   navigate("/login")
                 }
-                }}><PiHeartBold/></button>
+                }}><PiHeartBold  className="heart2"/></button>
               )}
+             
+              </div> 
+              <Link to={`/hotel/${hotel.id}`}>
+                <h2 className="hotel-name">{hotel.title}</h2>{" "}
+              </Link>
+              <p className="hotel-address">{hotel.address}</p>
+              <p className="hotel-rating">Rating: {hotel.rating}</p>
             </div>
           );
         })}
