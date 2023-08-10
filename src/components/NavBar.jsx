@@ -48,9 +48,8 @@ function NavBar({ removeUser }) {
         </NavLink>
 
         {/* middle */}
-
-
-        <NavLink to={"/favorites"}>
+    <div>
+    <NavLink to={"/favorites"}>
           {" "}
           <div className="favorites-trigger">
             <ImHeart />
@@ -67,9 +66,16 @@ function NavBar({ removeUser }) {
               setOpen(!open);
             }}
           >
-            <GiHamburgerMenu />
-            <HiUserCircle />
+            <div className="col">
+
+            <GiHamburgerMenu className="hambIcon"/>
+            <HiUserCircle className="userIconNav" />
+            </div>
           </div>
+
+    </div>
+
+      
           {console.log(user)}
           <div className={`dropdown-menu ${open ? "active" : "inactive"}`}>
           {user && (

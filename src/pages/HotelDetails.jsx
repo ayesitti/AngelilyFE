@@ -8,6 +8,8 @@ import { Rating } from 'react-simple-star-rating'
 import {FaUser} from "react-icons/fa"
 const baseURL =  "https://hooks.adaptable.app/hotels";
 const raitingURL = "https://hooks.adaptable.app/ratings"
+import { PiHeartBold } from "react-icons/pi";
+import { PiHeartFill } from "react-icons/pi";
 
 function HotelDetails({user}) {
 	
@@ -144,6 +146,17 @@ check()
 		
 	<h1 className='oneHotelTitle'> {oneHotel.title} </h1>
 		<p className='oneHotelAdress'>{ oneHotel.address}</p>
+		<div className='barWithIconsDetailsPage'> {(isFav) ? (
+                <button onClick={() => removeFavorites(isFav.id)}><PiHeartFill className="heartDetailsPage"/></button>
+              ) : (
+                <button onClick={() => {
+                  if (user) {
+                  addToFavorites(oneHotel.id)
+                } else {
+                  navigate("/login")
+                }
+                }}><PiHeartBold  className="heartDetailsPage"/></button>
+              )}</div>
 		<div className='photosZone'>
 		<img src={oneHotel.imgUrl} alt="" className='mainPhotoOfHotel' />
 		
@@ -152,23 +165,14 @@ check()
 		{ oneHotel.imgRooms.map(el => {
 			return (
 				<div key={el} >	
+			
 			<img src={el} alt="" className='photosOfOneHotel' />
 			
 				</div>
 			)})}
 			
 			</div>
-{(isFav) ? (
-                <button onClick={() => removeFavorites(isFav.id)}>❤️</button>
-              ) : (
-                <button onClick={() => {
-                  if (user) {
-                  addToFavorites(oneHotel.id)
-                } else {
-                  navigate("/login")
-                }
-                }}>💔</button>
-              )}
+
 			
 			
 		<form onSubmit={handleSubmit} className='formComments'>
@@ -185,7 +189,7 @@ check()
 				name="opinion" cols="30" rows="10" onChange={handleChange}></textarea>
 				
 		<div>
-		<button className='buttonComents'>Send</button>
+		<button className='buttonComents button'>Send</button>
 		</div>
 		</div>
 		</form>

@@ -5,6 +5,7 @@ import axios from "axios";
 import { PiHeartBold } from "react-icons/pi";
 import { PiHeartFill } from "react-icons/pi";
 const API_URL = "https://hooks.adaptable.app/hotels";
+import { BsSearchHeart} from "react-icons/bs";
 
 function HomePage({ user }) {
   const [hotels, setHotels] = useState([]);
@@ -86,10 +87,12 @@ function HomePage({ user }) {
       <div className="homePage">
       { (
           <div className="search-bar">
+             <BsSearchHeart className=" searchIcon"/>
             <input className="search-bar-text" type="search" placeholder="Hotel Name" 
             onChange={handleSearch}/>
             <button className="searchBtn">
             </button>
+           
           </div>
         )}
         {hotels.map((hotel) => {
@@ -122,8 +125,8 @@ function HomePage({ user }) {
         })}
       </div>
       <div className="ButtonContainerHomePage">
-        <button onClick={handlePreviousButton}>Previous</button>
-        <button onClick={handleNextButton}>Next</button>
+        <button className="button"onClick={handlePreviousButton}>Previous</button>
+        <button className="button" onClick={handleNextButton}>Next</button>
       </div>
     </>
   );
