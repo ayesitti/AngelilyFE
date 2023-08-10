@@ -35,7 +35,7 @@ function AddNote({ handleAddNote, favoriteId, userId, hotelId, setShouldFetch })
       <form onSubmit={handleSaveClick}>
         <div>
           <textarea
-            cols="10"
+            cols="20"
             rows="8"
             placeholder="Type to add a note.."
             value={noteText}

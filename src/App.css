@@ -119,8 +119,6 @@ top:2.2rem;
 
 }
 
-
-
 .hotel-name {
   font-size: 1rem;
   font-weight: bolder;
@@ -261,22 +259,19 @@ h3 span {
   border-radius: 1rem;
 }
 .hotelfave-cards {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex-wrap: wrap;
-  /* border: 3px solid #2c6f57; */
-  padding: 1rem 3rem;
-  border-radius: 1rem;
-  gap: 1rem;
-  background: whitesmoke;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 колонки */
+  grid-template-rows: repeat(3, 1fr); /* 3 строки */
+  gap: 10px; /* промежуток между элементами */
+  margin-top: 3.8rem;
+  margin-left: 3rem;
 }
-.note, .note-new {
+.note, .note-new, textarea {
   background-color: #39cb94;
   margin-bottom: 0.8rem;
   border-radius: 1rem;
   padding: 1rem;
-  min-height: 170px;
+  min-height: 100px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -298,9 +293,9 @@ h3 span {
   grid-gap: 1rem;
   grid-template-columns: repeat (auto-fit, minmax(250, 1fr));
 }
-.note-new {
+/* .note-new {
   background-color: rgb(194, 232, 194)
-}
+} */
 
 textarea {
   border: none;

@@ -61,11 +61,17 @@ function Note({ user, favoriteId, shouldFetch, setShouldFetch }) {
   };
 
   return notes.map((note) => (
-    // {editingNoteId === note.id ?  (
+    
     <div className="note">
       <div>
         <div key={note.id} className="note-item">
-          <p>{note.note}</p>
+        {editingNoteId === note.id ? (<textarea
+            cols="20"
+            rows="8"
+            placeholder="Type to add a note.."
+            value={note.note}
+            onChange={handleChange}
+          ></textarea> ) : (<p>{note.note}</p>)}
         </div>
       </div>
       <div className="note-footer">
