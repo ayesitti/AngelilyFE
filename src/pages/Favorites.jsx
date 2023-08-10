@@ -54,11 +54,13 @@ function Favorites({ user }) {
             return (
               <div key={hotel.id} className="eachCard">
                 <div>
-                  <img
+              <div>
+              <img
                     className="fav-hotelsdetails"
                     src={hotel.imgUrl}
                     alt=""
                   />
+              </div>
                  <div> <button
                     className="delete-button"
                     onClick={() => removeFavorite(favorite.id)}

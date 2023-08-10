@@ -218,27 +218,15 @@ h3 span {
   border-radius: 1rem;
 }
 .hotelfave-cards {
-  /*display: flex;
+  display: flex;
   justify-content: flex-start;
   align-items: center;
   flex-wrap: wrap;
   /* border: 3px solid #2c6f57; */
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 4 колонки */
-  grid-template-rows: repeat(3, 1fr); /* 3 строки */
-  gap: 10px;
-  justify-self:center;
   padding: 1rem 3rem;
   border-radius: 1rem;
   gap: 1rem;
   background: whitesmoke;
-}
-.eachCard {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: #39cb94;
 }
 .note, .note-new {
   background-color: #39cb94;

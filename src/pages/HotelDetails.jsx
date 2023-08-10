@@ -128,7 +128,7 @@ const [comments, setComments] = useState([]);
 		}
 	}
 
- function check () {
+	async function check () {
 	isFav = userFavorites.find((fav) => fav.hotelId === oneHotel.id)
 	// return isFav
  }
