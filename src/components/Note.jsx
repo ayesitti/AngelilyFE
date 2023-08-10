@@ -6,7 +6,7 @@ import axios from "axios";
 function Note({ user, favoriteId, shouldFetch, setShouldFetch }) {
   const [notes, setNotes] = useState([]);
   const [editingNoteId, setEditingNoteId] = useState(null);
-  //   let editNote;
+  const [editedNote, setEditedNote] = useState("");
 
   const fetchNotes = async () => {
     try {
@@ -31,8 +31,28 @@ function Note({ user, favoriteId, shouldFetch, setShouldFetch }) {
   }, [shouldFetch]);
 
   if (notes.length === 0) {
-    return "Add a note here..";
+    return "Your personal notes here: ";
   }
+  //set the editingNotgeId and pre-fill the txtarea w/ the current note text.
+  const handleEdit = (id) => {
+    const noteToEdit = notes.find((note) => note.id === id);
+    setEditingNoteId(id);
+    setEditedNote(noteToEdit.note);
+  };
+
+  //-->send Patch request with the edited note
+  const handleSave = async (id) => {
+    try {
+      await axios.patch(`https://hooks.adaptable.app/notes/${id}`, {
+        note: editedNote,
+      });
+      setEditingNoteId(null);
+      setEditedNote("");
+      fetchNotes();
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const handleDelete = async (id) => {
     try {
@@ -61,22 +81,31 @@ function Note({ user, favoriteId, shouldFetch, setShouldFetch }) {
   };
 
   return notes.map((note) => (
-    
     <div className="note">
       <div>
         <div key={note.id} className="note-item">
-        {editingNoteId === note.id ? (<textarea
-            cols="20"
-            rows="8"
-            placeholder="Type to add a note.."
-            value={note.note}
-            onChange={handleChange}
-          ></textarea> ) : (<p>{note.note}</p>)}
+          {editingNoteId === note.id ? (
+            <div>
+              <textarea
+                cols="20"
+                rows="8"
+                placeholder="Type to add a note.."
+                value={editedNote}
+                onChange={(e) => setEditedNote(e.target.value)}
+              ></textarea>
+              <button onClick={() => handleSave(note.id)}>Save</button>
+            </div>
+          ) : (
+            <p>{note.note}</p>
+          )}
         </div>
       </div>
       <div className="note-footer">
-        <small>29/10/2023</small>
-        <button onClick={() => setEditingNoteId(note.id)}>Edit</button>
+        <small>{note.date}</small>
+        {editingNoteId !== note.id && (
+          <button onClick={() => handleEdit(note.id)}>Edit</button>
+        )}
+
         <RiDeleteBin2Line
           className="delete-icon"
           size="1.2rem"
