@@ -4,6 +4,7 @@ import axios from "axios";
 const notesURL = "https://hooks.adaptable.app/notes";
 function AddNote({ handleAddNote, favoriteId, userId, hotelId, setShouldFetch }) {
   const [noteText, setNoteText] = useState("");
+  const characterLimit = 200;
 
   const handleChange = (event) => {
     setNoteText(event.target.value);
@@ -42,7 +43,7 @@ function AddNote({ handleAddNote, favoriteId, userId, hotelId, setShouldFetch })
           ></textarea>
         </div>
         <div className="note-footer">
-          <small>200 remaining</small>
+          <small>{characterLimit - noteText.length} characters remaining </small>
           <button className="save" onClick={handleSaveClick}>
             {" "}
             Save{" "}
