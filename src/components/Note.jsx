@@ -69,7 +69,7 @@ function Note({ user, favoriteId, shouldFetch, setShouldFetch }) {
       <div>
         <div key={note.id} className="note-item">
           {editingNoteId === note.id ? (
-            <div>
+            <div className="textarea-notes">
               <textarea
                 cols="20"
                 rows="8"

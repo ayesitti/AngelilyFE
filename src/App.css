@@ -9,6 +9,13 @@
   gap: 1rem;
   background: whitesmoke;
 }*/
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 .homePage {
   display: grid;
   grid-template-columns: repeat(4, 1fr); /* 4 колонки */
@@ -307,7 +314,9 @@ h3 span {
 .note,
 .note-new,
 textarea {
-  width: 100%;
+  
+  object-fit: cover;
+  border-radius: 1rem;
   background-color: #39cb94;
   margin-bottom: 0.8rem;
   border-radius: 1rem;
@@ -316,6 +325,9 @@ textarea {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+.textarea-notes {
+  width: 85%
 }
 .note-footer {
   display: flex;
@@ -415,7 +427,21 @@ color: #39cb94;
 font-weight: bolder;
 }
 
-
+.button {
+  width: 7rem;
+  display: inline-block;
+  padding: 12px 24px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  background-color: #0aaf5d;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s, transform 0.3s;
+  margin: 1rem;
+}
 .hotel-name, .hotel-address, .hotel-rating {
   margin: 0; /* Убираем отступы сверху и снизу у всех элементов */
 }

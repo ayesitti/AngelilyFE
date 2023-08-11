@@ -33,7 +33,7 @@ function AddNote({ handleAddNote, favoriteId, userId, hotelId, setShouldFetch })
   return (
     <div className="note-new">
       <form onSubmit={handleSaveClick}>
-        <div>
+        <div className="textarea-notes">
           <textarea
             cols="20"
             rows="8"
