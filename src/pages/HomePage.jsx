@@ -103,9 +103,9 @@ function HomePage({ user }) {
             <div className="imgHotelContainer">  <img className="hotelImage" src={hotel.imgUrl} />
              
               {isFav ? (
-                <button onClick={() => removeFavorites(isFav.id)}><PiHeartFill className="heart"/></button>
+                <button className="btnh" onClick={() => removeFavorites(isFav.id)}><PiHeartFill className="heart"/></button>
               ) : (
-                <button onClick={() => {
+                <button className="btnh" onClick={() => {
                   if (user) {
                   addToFavorites(hotel.id)
                 } else {

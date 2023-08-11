@@ -143,7 +143,7 @@ console.log(oneHotel)
 		return <div>Loading...</div>;
 	}
 	return (
-	<div>
+	<div className='mainContainerOfDetails'>
 		
 	<h1 className='oneHotelTitle'> {oneHotel.title} </h1>
 		<p className='oneHotelAdress'>{ oneHotel.address}</p>
@@ -151,7 +151,7 @@ console.log(oneHotel)
 		<div className="heartDetailsPage  grid-item">
 		{(isFav) ? (
                 <button onClick={() => removeFavorites(isFav.id)}>
-					<div></div>
+					
 					<PiHeartFill className="heartDetailsPage"/></button>
               ) : (
                 <button onClick={() => {
@@ -192,16 +192,19 @@ console.log(oneHotel)
 			)})}
 			
 			</div>
-				<div className='container'>
+				<div className='containerBar'>
 			<div className='infoIneHotel'>
 				<p>{oneHotel.info}</p>
+				</div>
 
 				<div className='price'>
 				<p> price</p>
 				</div>
 			</div>
 
-				</div>
+<div className='smallicons'>
+	<img src="../../public/ekv.jpg" alt="" />
+</div>
 			
 		<form onSubmit={handleSubmit} className='formComments'>
 		<div className='comments'>

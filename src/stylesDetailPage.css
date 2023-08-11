@@ -8,7 +8,10 @@
     width: 20rem;
 
   }
-  
+.mainContainerOfDetails{
+  margin-left: 10rem;
+  margin-right: 10rem;
+}
 /*.roomsPhotosContainer{
     width: 100%;
     display: flex;
@@ -35,7 +38,7 @@
   align-content: center;
   justify-content: center;
   column-gap: 2%;
-  row-gap: 10%;
+  row-gap:4%;
   margin-bottom: 4rem;
 }
 .oneHotelTitle {
@@ -101,8 +104,9 @@ margin: 1rem;
 
 .formComments{
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+  margin-top: 5rem;
 }
 .score{
 font-size: large;
@@ -111,6 +115,7 @@ size: 1rem;
 }
 .allOpinions{
   display: flex;
+  width: 30rem;
   flex-direction: column;
   margin-left: 2rem;
   
@@ -124,21 +129,31 @@ size: 1rem;
 }
 .heartDetailsPage{
 font-size: 1.2rem;
-margin-left: 4rem;
+margin-left: 1rem;
 transform: translate(-10px, 10px);
-color: rgb(15, 143, 15)
+color: rgb(15, 143, 15);
+padding: 0;
+}
+
+.heartDetailsPage button {
+  background: transparent;
+  border: none;
 }
 .heartDetailsPage2 {
+  margin-left: 1rem;
   font-size: 1.2rem;
-margin-left: 4rem;
+
 transform: translate(-10px, 10px);
+padding: 0;
+
+
 }
 .barWithIconsDetailsPage{
 
-width: 100%;
+width: 85rem;
 height: 4rem;
 display: grid;
-grid-template-columns: 1fr 5fr 1fr; /* Ширина колонок */
+grid-template-columns: 1fr 6fr 1fr; /* Ширина колонок */
 grid-template-rows: auto; /* Одна строка */
 align-items: center;
 }
@@ -152,31 +167,36 @@ align-items: center;
 .smallbox{
   display: flex;
   width: 15rem;
-  margin-right: 5rem;
-}
-.texRat{
-  width: 100%;
-  display: flex;
+  margin-right: 2rem;
+
   align-items: center;
-  justify-content: center;
-  text-align: center;
- gap: 2rem;
-  margin-top: 2rem;
+}
+
+
+
+
+.containerBar{
+  display: flex;
+  width: 100%;
+  justify-content:space-between;
+  /*padding-left: 5rem;*/
+  margin-bottom: 5rem;
+
 }
 .infoIneHotel {
   font-size: 2rem;
-  width: 65rem;
+  width:100%;
   display: flex;
   text-align:start;
- 
+ margin-left: 1rem;
 }
 .price{
-  width: 90rem;
-  background-color: #1d8d15;
+  width: 30rem;
+  margin-left: 2rem;
+  background-color: #669e62;
 }
-.container{
-  width: 100%;
-  justify-content: center;
-  padding-left: 5rem;
-  margin-bottom: 5rem;
+
+.smallicons{
+  width: 41rem;
+border: 1px solid #0aaf5d;
 }
