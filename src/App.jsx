@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import HotelDetails from "./pages/HotelDetails";
 
@@ -16,7 +16,7 @@ import AddNote from "./components/AddNote";
 function App() {
   
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
-  //const [note, setNote] = useState(JSON.parse(localStorage.getItem("note")))
+const navigate = useNavigate()
   
   function storeUser(userArg) {
     setUser(userArg);
@@ -25,6 +25,7 @@ function App() {
   function removeUser () {
     setUser(null)
     localStorage.removeItem("user")
+    navigate("/")
     
   }
 

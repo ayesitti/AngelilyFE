@@ -2,7 +2,7 @@ import React from "react";
 import { RiDeleteBin2Line } from "react-icons/ri";
 import { useState, useEffect } from "react";
 import axios from "axios";
-
+import {BiEdit} from "react-icons/bi";
 function Note({ user, favoriteId, shouldFetch, setShouldFetch }) {
   const [notes, setNotes] = useState([]);
   const [editingNoteId, setEditingNoteId] = useState(null);
@@ -30,9 +30,9 @@ function Note({ user, favoriteId, shouldFetch, setShouldFetch }) {
     }
   }, [shouldFetch]);
 
-  if (notes.length === 0) {
-    return "Your personal notes here: ";
-  }
+  // if (notes.length === 0) {
+  //   return "Your personal notes here: ";
+  // }
   //set the editingNotgeId and pre-fill the txtarea w/ the current note text.
   const handleEdit = (id) => {
     const noteToEdit = notes.find((note) => note.id === id);
@@ -89,11 +89,11 @@ function Note({ user, favoriteId, shouldFetch, setShouldFetch }) {
               <textarea
                 cols="20"
                 rows="8"
-                placeholder="Type to add a note.."
+                placeholder="Click to start adding a note.."
                 value={editedNote}
                 onChange={(e) => setEditedNote(e.target.value)}
               ></textarea>
-              <button onClick={() => handleSave(note.id)}>Save</button>
+              <button className="save" onClick={() => handleSave(note.id)}>Save</button>
             </div>
           ) : (
             <p>{note.note}</p>
@@ -103,7 +103,7 @@ function Note({ user, favoriteId, shouldFetch, setShouldFetch }) {
       <div className="note-footer">
         <small>{note.date}</small>
         {editingNoteId !== note.id && (
-          <button onClick={() => handleEdit(note.id)}>Edit</button>
+          <button className="edit-btn" onClick={() => handleEdit(note.id)}><BiEdit /></button>
         )}
 
         <RiDeleteBin2Line
