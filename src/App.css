@@ -389,7 +389,7 @@ textarea:focus {
   flex-direction: column;
 }
 .each-comments {
-  width: 80%;
+  width: 40vw;
   background-color: #39cb94;
   margin-bottom: 0.8rem;
   border-radius: 1rem;
