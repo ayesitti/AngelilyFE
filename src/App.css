@@ -109,6 +109,13 @@
   object-fit: cover;
   border-radius: 1rem;
 }
+.btnh {
+  padding: 0;
+  background: transparent;
+  border: none;
+  right: 0px;
+  top: 0;
+}
 .heart {
   font-size: 2rem;
   position: absolute;
@@ -126,6 +133,12 @@
   z-index: 3;
   transform: translate(-10px, 10px);
 }
+.container{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
 
 .hotel-name,
 .hotel-rating,

@@ -5,11 +5,12 @@ import { useEffect, useState } from "react"
 import Map from '../components/Map'
 import useForm from "../useForm"
 import { Rating } from 'react-simple-star-rating'
-import {FaUser} from "react-icons/fa"
+import {FaUser, FaStar} from "react-icons/fa"
+import {FaShare} from "react-icons/fa"
 const baseURL =  "https://hooks.adaptable.app/hotels";
 const raitingURL = "https://hooks.adaptable.app/ratings"
-import { PiHeartBold } from "react-icons/pi";
-import { PiHeartFill } from "react-icons/pi";
+import { PiHeartBold, PiHeartFill } from "react-icons/pi";
+
 
 function HotelDetails({user}) {
 	
@@ -135,19 +136,23 @@ const [comments, setComments] = useState([]);
 	// return isFav
  }
 check()
-
+console.log(oneHotel)
 
 
 	if (!oneHotel|| !comments) {
 		return <div>Loading...</div>;
 	}
 	return (
-	<div>
+	<div className='mainContainerOfDetails'>
 		
 	<h1 className='oneHotelTitle'> {oneHotel.title} </h1>
 		<p className='oneHotelAdress'>{ oneHotel.address}</p>
-		<div className='barWithIconsDetailsPage'> {(isFav) ? (
-                <button onClick={() => removeFavorites(isFav.id)}><PiHeartFill className="heartDetailsPage"/></button>
+		<div className='barWithIconsDetailsPage'> 
+		<div className="heartDetailsPage  grid-item">
+		{(isFav) ? (
+                <button onClick={() => removeFavorites(isFav.id)}>
+					
+					<PiHeartFill className="heartDetailsPage"/></button>
               ) : (
                 <button onClick={() => {
                   if (user) {
@@ -155,8 +160,23 @@ check()
                 } else {
                   navigate("/login")
                 }
-                }}><PiHeartBold  className="heartDetailsPage"/></button>
-              )}</div>
+                }}><PiHeartBold  className="heartDetailsPage2 "/></button>
+              )}
+		</div>
+			  <div className="grid-item"></div>
+			  <div className="grid-item smallbox">
+				<div>
+			  <FaStar className='iconDetailPage' />
+			
+				</div>
+				<div className='textRat'>	<p>Raiting: {oneHotel.rating}</p></div>
+
+			  <FaShare className='iconDetailPage'/>
+			  <p>Share</p>
+			  </div>
+			 
+	
+			  </div>
 		<div className='photosZone'>
 		<img src={oneHotel.imgUrl} alt="" className='mainPhotoOfHotel' />
 		
@@ -172,8 +192,19 @@ check()
 			)})}
 			
 			</div>
+				<div className='containerBar'>
+			<div className='infoIneHotel'>
+				<p>{oneHotel.info}</p>
+				</div>
 
-			
+				<div className='price'>
+				<p> price</p>
+				</div>
+			</div>
+
+<div className='smallicons'>
+	<img src="../../public/ekv.jpg" alt="" />
+</div>
 			
 		<form onSubmit={handleSubmit} className='formComments'>
 		<div className='comments'>
