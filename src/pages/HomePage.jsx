@@ -31,7 +31,7 @@ function HomePage({ user }) {
         hotelId: hotelId,
       };
       await axios.post("https://hooks.adaptable.app/favorites", newFavorite);
-      console.log("POST HOTEL");
+
       fetchFavorites();
     } catch (error) {
       console.log(error.message);

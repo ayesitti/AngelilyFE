@@ -3,6 +3,8 @@ import { RiDeleteBin2Line } from "react-icons/ri";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import {BiEdit} from "react-icons/bi";
+
+
 function Note({ user, favoriteId, shouldFetch, setShouldFetch }) {
   const [notes, setNotes] = useState([]);
   const [editingNoteId, setEditingNoteId] = useState(null);
@@ -13,10 +15,7 @@ function Note({ user, favoriteId, shouldFetch, setShouldFetch }) {
       const response = await axios.get(
         `https://hooks.adaptable.app/notes?userId=${user.id}&favoriteId=${favoriteId}`
       );
-      // if (!response.data.length) {
-      //     await axios.post(`https://hooks.adaptable.app/notes`, {userId: user.id, favoriteId: favoriteId})
-      //     return
-      // }
+    
       setNotes(response.data);
       console.log(response.data);
     } catch (error) {
@@ -63,22 +62,7 @@ function Note({ user, favoriteId, shouldFetch, setShouldFetch }) {
     }
   };
 
-  //   const handleEditText = async (id) => {
-  //     try {
-  //       await axios
-  //         .get(`https://hooks.adaptable.app/notes/${id}`)
-  //         .then((response) => {
-  //           editNote = response.data;
-  //           console.log(editNote);
-  //         });
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   };
 
-  const handleChange = (e) => {
-    console.log(e.target.value);
-  };
 
   return notes.map((note) => (
     <div className="note">
