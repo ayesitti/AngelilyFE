@@ -33,11 +33,11 @@ function LoginPage({ storeUser }) {
 
   return (
     <div className="form">
-      <h2>Login</h2>
+      <h2 className="form-title">Login</h2>
       <form onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="username">Username: </label>
-          <input
+          <label  className="label" htmlFor="username">Username: </label>
+          <input className="input-field"
             type="text"
             value={user.username}
             id="username"
@@ -47,8 +47,8 @@ function LoginPage({ storeUser }) {
           />
         </div>
         <div>
-          <label htmlFor="email">E-mail: </label>
-          <input
+          <label className="label" htmlFor="email">E-mail: </label>
+          <input className="input-field"
             type="email"
             id="email"
             value={user.email}
@@ -58,8 +58,8 @@ function LoginPage({ storeUser }) {
           />
         </div>
         <div>
-          <label htmlFor="password">Password: </label>
-          <input
+          <label className="label" htmlFor="password">Password: </label>
+          <input className="input-field"
             type="password"
             id="password"
             value={user.password}
@@ -68,13 +68,13 @@ function LoginPage({ storeUser }) {
             }
           />
         </div>
-        <p>Not registered yet?</p>
+        <p className="not-registered">Not registered yet?</p>
          <Link to={"/signup"}>
               <p>Sign up here</p>
               </Link>
         <p className="error">{error}</p>
         
-        <button className="login-btn">Login</button>
+        <button className="button">Login</button>
       </form>
     </div>
   );

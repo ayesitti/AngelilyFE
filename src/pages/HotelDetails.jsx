@@ -10,6 +10,7 @@ import {FaShare} from "react-icons/fa"
 const baseURL =  "https://hooks.adaptable.app/hotels";
 const raitingURL = "https://hooks.adaptable.app/ratings"
 import { PiHeartBold, PiHeartFill } from "react-icons/pi";
+import { FaUserCircle  } from "react-icons/fa";
 
 
 function HotelDetails({user}) {
@@ -220,7 +221,7 @@ console.log(oneHotel)
 				</div>
 
 				<div className='price'>
-				<p> price</p>
+				<p> Average of 500€/night</p>
 				</div>
 
 				</div>
@@ -233,6 +234,7 @@ console.log(oneHotel)
 			
 <div className='smallicons grid-item'>
 	<img src="../../public/ekv.jpg" alt="" />
+	
 </div>
 <Map className='grid-item'oneHotel={oneHotel}/>
 
@@ -260,18 +262,19 @@ console.log(oneHotel)
 		</form>
 		
 				
-		<div>
+		<div className='comments-container'>
 	{comments.map(el => {
 	
 			return (
-				<div key={el.id} className='allOpinions grid-item'>	
-			<FaUser className='userIcon'/>
+				<div key={el.id} className='each-comments'>	
+			<div className='each-user'> <FaUserCircle className='userIcon'/> {user.name} </div>
+			<p className='score'>  {el.score} ⭐ </p>
 			<div> 
 			
-			<p className='score'> ⭐ {el.score}  </p>
 			</div>
-			<p> {el.comment}</p>
+			<p className='each-user-comments'> {el.comment}</p>
 				</div>
+				
 			)})}
 			</div>
 
