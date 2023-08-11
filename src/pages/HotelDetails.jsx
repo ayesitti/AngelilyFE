@@ -1,4 +1,3 @@
-import '../stylesDetailPage.css'
 import axios from "axios"
 import { useParams } from "react-router-dom"
 import { useEffect, useState } from "react"
@@ -143,21 +142,13 @@ console.log(oneHotel)
 	if (!oneHotel|| !comments) {
 		return <div>Loading...</div>;
 	}
-	return (  
-<div className="grid-container">
-		<div className="grid-item one">
-			<div className='head'>
-		<h1 className='oneHotelTitle'> {oneHotel.title} </h1>
+	return (
+	<div className='mainContainerOfDetails'>
+		
+	<h1 className='oneHotelTitle'> {oneHotel.title} </h1>
 		<p className='oneHotelAdress'>{ oneHotel.address}</p>
-
-			</div>
-
-		</div>
-
-
-
-		<div className="grid-item two barWithIconsDetailsPage">
-		<div className="heartDetailsPage ">
+		<div className='barWithIconsDetailsPage'> 
+		<div className="heartDetailsPage  grid-item">
 		{(isFav) ? (
                 <button onClick={() => removeFavorites(isFav.id)}>
 					
@@ -172,8 +163,8 @@ console.log(oneHotel)
                 }}><PiHeartBold  className="heartDetailsPage2 "/></button>
               )}
 		</div>
-		
-			  <div className=" smallbox">
+			  <div className="grid-item"></div>
+			  <div className="grid-item smallbox">
 				<div>
 			  <FaStar className='iconDetailPage' />
 			
@@ -186,63 +177,43 @@ console.log(oneHotel)
 			 
 	
 			  </div>
-
-
-		<div className="grid-item three photosZone">
-			<div className='photosZone'>
-
-		<div className='grid-item-full'> <img src={oneHotel.imgUrl} alt="" className='mainPhotoOfHotel ' />
-			</div>
-
-			<div className='grid-item-split'>
+		<div className='photosZone'>
+		<img src={oneHotel.imgUrl} alt="" className='mainPhotoOfHotel' />
+		
+			
+		
 		{ oneHotel.imgRooms.map(el => {
 			return (
-				<div key={el} className='grid-item2'>	
+				<div key={el} >	
 			
 			<img src={el} alt="" className='photosOfOneHotel' />
 			
 				</div>
 			)})}
-		</div>
 			
-
 			</div>
-
-
-		</div>
-
-
-		<div className="grid-item four">
-
 				<div className='containerBar'>
-
-		<div className='infoIneHotel'>
+			<div className='infoIneHotel'>
 				<p>{oneHotel.info}</p>
 				</div>
 
 				<div className='price'>
 				<p> Average of 500€/night</p>
 				</div>
+				
+			</div>
+<div className='middleContainerDetails'>
 
-				</div>
-
-
-		</div>
-
-
-		<div className="grid-item five">
-			
 <div className='smallicons grid-item'>
 	<img src="../../public/ekv.jpg" alt="" />
 	
 </div>
 <Map className='grid-item'oneHotel={oneHotel}/>
 
-		</div>
+</div>
 
-
-		<div className="grid-item six">
-		<form onSubmit={handleSubmit} className='formComments  grid-item'>
+			
+		<form onSubmit={handleSubmit} className='formComments'>
 		<div className='comments'>
 			<h1> You can share with us your opinion</h1>
 				<label htmlFor='starRating'>Rating:</label>
@@ -278,13 +249,13 @@ console.log(oneHotel)
 			)})}
 			</div>
 
+
+		{/*<Map oneHotel={oneHotel}/>*/}
+
 		
-</div>
-</div>
+	</div>
 	);
 }
 
 
-
-
-  export default HotelDetails;
+  export default HotelDetails;

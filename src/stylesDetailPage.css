@@ -1,220 +1,220 @@
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-.photosOfOneHotel{
-    width: 20rem;
-
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
   }
-.mainContainerOfDetails{
-  margin-left: 5rem;
-  margin-right:5rem;
-}
-/*.roomsPhotosContainer{
-    width: 100%;
-    display: flex;
-    gap:1rem;
-    flex-wrap: wrap;
-  }*/
-.mainPhotoOfHotel{
-    width: 40rem;
-    grid-column-start: 1;
-    grid-column-end: 2;
-    grid-row-start:  row1-start;
-    grid-row-end: 3;
-    align-self: stretch;
-}
-.photosZone {
-  /*background-color: aqua;*/
-  display: grid;
-  grid-template-columns: [one] 2fr [two] 1fr [three] 1fr [four];
-  grid-template-rows: [row1-start] 1fr [row1-end] 1fr;
-  width: 100%;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-  padding-left: 6rem;
-  padding-right: 6rem;
-  align-content: center;
-  justify-content: center;
-  column-gap: 2%;
-  row-gap:4%;
-  margin-bottom: 4rem;
-}
-.oneHotelTitle {
-font-size: 3rem;
-font-weight:900;
-padding-left: 3rem;
-margin: 1rem;
-}
-.oneHotelAdress{
-  font-size: 1rem;
-  padding-left: 3.2rem;
-  margin: 1rem;
-}
-.map{
-
-  width: 70%;
-  height: 25rem;
-}
-.cotainerMap{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 3rem;
-  width: 60rem;
-}
-.comments{
-  display:flex;
-  flex-direction: column;
- width: 40rem;
-}
-
-/*.buttonComents{
-  margin: 1rem;
-  width: 5rem;
-  box-shadow: 1px 1px 5px 1px #000000;
-}*/
-.button {
-  width: 7rem;
-  display: inline-block;
-  padding: 12px 24px;
-  font-size: 16px;
-  border: none;
-  border-radius: 8px;
-  background-color: #0aaf5d;
-  color: #fff;
-  text-align: center;
-  text-decoration: none;
-  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
-  transition: background-color 0.3s, transform 0.3s;
-  margin: 1rem;
-}
-
-.button:hover {
-  background-color: #0aaf5d;
-  transform: translateY(-2px);
-}
-
-.button:active {
-  background-color: #1d8d15;
-  transform: translateY(0);
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
-}
-
-
-.formComments{
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  margin-top: 5rem;
-}
-.score{
-font-size: large;
-size: 1rem;
-
-}
-.allOpinions{
-  display: flex;
-  width: 30rem;
-  flex-direction: column;
-  margin-left: 2rem;
   
-}
-.userIcon {
- 
-  width: 1rem;
-
-}
-.each-user {
-  color: #0c4808;
-  font-weight: bolder;
-}
-.each-user-comments{
-  color: wheat
-}
-.heartDetailsPage{
-font-size: 1.2rem;
-margin-left: 1rem;
-transform: translate(-10px, 10px);
-color: rgb(15, 143, 15);
-padding: 0;
-}
-
-.heartDetailsPage button {
-  background: transparent;
-  border: none;
-}
-.heartDetailsPage2 {
+  .photosOfOneHotel{
+      width: 20rem;
+  
+    }
+  .mainContainerOfDetails{
+    margin-left: 5rem;
+    margin-right:5rem;
+  }
+  /*.roomsPhotosContainer{
+      width: 100%;
+      display: flex;
+      gap:1rem;
+      flex-wrap: wrap;
+    }*/
+  .mainPhotoOfHotel{
+      width: 40rem;
+      grid-column-start: 1;
+      grid-column-end: 2;
+      grid-row-start:  row1-start;
+      grid-row-end: 3;
+      align-self: stretch;
+  }
+  .photosZone {
+    /*background-color: aqua;*/
+    display: grid;
+    grid-template-columns: [one] 2fr [two] 1fr [three] 1fr [four];
+    grid-template-rows: [row1-start] 1fr [row1-end] 1fr;
+    width: 100%;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    padding-left: 6rem;
+    padding-right: 6rem;
+    align-content: center;
+    justify-content: center;
+    column-gap: 2%;
+    row-gap:4%;
+    margin-bottom: 4rem;
+  }
+  .oneHotelTitle {
+  font-size: 3rem;
+  font-weight:900;
+  padding-left: 3rem;
+  margin: 1rem;
+  }
+  .oneHotelAdress{
+    font-size: 1rem;
+    padding-left: 3.2rem;
+    margin: 1rem;
+  }
+  .map{
+  
+    width: 70%;
+    height: 25rem;
+  }
+  .cotainerMap{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+    width: 60rem;
+  }
+  .comments{
+    display:flex;
+    flex-direction: column;
+   width: 40rem;
+  }
+  
+  /*.buttonComents{
+    margin: 1rem;
+    width: 5rem;
+    box-shadow: 1px 1px 5px 1px #000000;
+  }*/
+  .button {
+    width: 7rem;
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    background-color: #0aaf5d;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, transform 0.3s;
+    margin: 1rem;
+  }
+  
+  .button:hover {
+    background-color: #0aaf5d;
+    transform: translateY(-2px);
+  }
+  
+  .button:active {
+    background-color: #1d8d15;
+    transform: translateY(0);
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
+  }
+  
+  
+  .formComments{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 5rem;
+  }
+  .score{
+  font-size: large;
+  size: 1rem;
+  
+  }
+  .allOpinions{
+    display: flex;
+    width: 30rem;
+    flex-direction: column;
+    margin-left: 2rem;
+    
+  }
+  .userIcon {
+   
+    width: 1rem;
+  
+  }
+  .each-user {
+    color: #0c4808;
+    font-weight: bolder;
+  }
+  .each-user-comments{
+    color: wheat
+  }
+  .heartDetailsPage{
+  font-size: 1.2rem;
   margin-left: 1rem;
-  font-size: 1.2rem;
-
-transform: translate(-10px, 10px);
-padding: 0;
-
-
-}
-.barWithIconsDetailsPage{
-
-width: 85rem;
-height: 4rem;
-display: grid;
-grid-template-columns: 1fr 6fr 1fr; /* Ширина колонок */
-grid-template-rows: auto; /* Одна строка */
-align-items: center;
-}
-.grid-item{
-  width: 7rem;
-}
-.iconDetailPage{
-  font-size: 1.2rem;
-  margin: .5rem;
-}
-.smallbox{
-  display: flex;
-  width: 15rem;
-  margin-right: 2rem;
-
-  align-items: center;
-}
-
-
-
-
-.containerBar{
-  display: flex;
-  width: 100%;
-  justify-content:space-between;
-  /*padding-left: 5rem;*/
-  margin-bottom: 5rem;
-
-}
-.infoIneHotel {
-  font-size: 2rem;
-  width:100%;
-  display: flex;
-  text-align:start;
- margin-left: 1rem;
-}
-.price{
-  font-size: 1rem;
-  margin-left: 2rem;
-  color: #3b7038;
-}
-
-/* .smallicons{
-  width: rem;
-border: 1px solid #0aaf5d;
-} */
-.smallicons img {
-  width: 40.5rem;
-}
-.middleContainerDetails{
+  transform: translate(-10px, 10px);
+  color: rgb(15, 143, 15);
+  padding: 0;
+  }
+  
+  .heartDetailsPage button {
+    background: transparent;
+    border: none;
+  }
+  .heartDetailsPage2 {
+    margin-left: 1rem;
+    font-size: 1.2rem;
+  
+  transform: translate(-10px, 10px);
+  padding: 0;
+  
+  
+  }
+  .barWithIconsDetailsPage{
+  
+  width: 85rem;
+  height: 4rem;
   display: grid;
-  width: 100%;
-grid-template-columns: 1fr 1fr; /* Ширина колонок */
-grid-template-rows: auto; /* Одна строка */
-align-items: center;
-
-}
+  grid-template-columns: 1fr 6fr 1fr; /* Ширина колонок */
+  grid-template-rows: auto; /* Одна строка */
+  align-items: center;
+  }
+  .grid-item{
+    width: 7rem;
+  }
+  .iconDetailPage{
+    font-size: 1.2rem;
+    margin: .5rem;
+  }
+  .smallbox{
+    display: flex;
+    width: 15rem;
+    margin-right: 2rem;
+  
+    align-items: center;
+  }
+  
+  
+  
+  
+  .containerBar{
+    display: flex;
+    width: 100%;
+    justify-content:space-between;
+    /*padding-left: 5rem;*/
+    margin-bottom: 5rem;
+  
+  }
+  .infoIneHotel {
+    font-size: 2rem;
+    width:100%;
+    display: flex;
+    text-align:start;
+   margin-left: 1rem;
+  }
+  .price{
+    font-size: 1rem;
+    margin-left: 2rem;
+    color: #3b7038;
+  }
+  
+  /* .smallicons{
+    width: rem;
+  border: 1px solid #0aaf5d;
+  } */
+  .smallicons img {
+    width: 40.5rem;
+  }
+  .middleContainerDetails{
+    display: grid;
+    width: 100%;
+  grid-template-columns: 1fr 1fr; /* Ширина колонок */
+  grid-template-rows: auto; /* Одна строка */
+  align-items: center;
+  
+  }
