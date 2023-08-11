@@ -124,10 +124,15 @@ size: 1rem;
 }
 .userIcon {
  
-  width: 3rem;
-  margin-top: 1rem;
-  margin-bottom: .3rem;
+  width: 1rem;
 
+}
+.each-user {
+  color: #0c4808;
+  font-weight: bolder;
+}
+.each-user-comments{
+  color: wheat
 }
 .heartDetailsPage{
 font-size: 1.2rem;
@@ -193,15 +198,15 @@ align-items: center;
  margin-left: 1rem;
 }
 .price{
-  width: 30rem;
+  font-size: 1rem;
   margin-left: 2rem;
-  background-color: #669e62;
+  color: #3b7038;
 }
 
-.smallicons{
-  width: 41rem;
+/* .smallicons{
+  width: rem;
 border: 1px solid #0aaf5d;
-}
+} */
 .smallicons img {
   width: 40.5rem;
 }

@@ -255,16 +255,21 @@ h3 span {
 }
 .form {
   font-size: 1rem;
-  width: 55vw;
+  width: 40vw;
   height: 35vh;
   padding: 12px 5px;
-  margin: 20% auto;
+  margin: 10% auto;
   display: flex;
   flex-direction: column;
   gap: 1rem;
   text-align: center;
   border: 15px solid rgb(157, 207, 166);
   border-radius: 10%;
+  box-shadow: 0 0 20px 3px #51b279c2;
+}
+.input-field{
+  border: 1px solid #ccc;
+    border-radius: 4px;
 }
 .fav-cards {
   display: flex;
@@ -375,4 +380,39 @@ textarea:focus {
   color: rgb(15, 143, 15);
   z-index: 3
 }
+.comments-container {
+  
+  width: 80%;
+  display: flex;
+  justify-content: flex-start;
+  text-align: center;
+  flex-direction: column;
+}
+.each-comments {
+  width: 80%;
+  background-color: #39cb94;
+  margin-bottom: 0.8rem;
+  border-radius: 1rem;
+  padding: 1rem;
+  min-height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.price {
+  font-weight: lighter;
+}
+.label {
+color: #179263;
+}
+.not-registered {
+font-weight: 900;
+color: rgb(62, 68, 62);
+}
+.form-title {
+color: #39cb94;
+font-weight: bolder;
+}
+
 

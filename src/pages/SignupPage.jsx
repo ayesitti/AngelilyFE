@@ -27,8 +27,9 @@ function SignupPage() {
       <form  onSubmit={handleSubmit}>
         
         <div className="user-name">
-          <label htmlFor="username"> Username:</label>
+          <label  className="label" htmlFor="username"> Username:</label>
           <input
+          className="input-field"
             type="text"
             value={user.username}
             id="username"
@@ -38,8 +39,8 @@ function SignupPage() {
           />
         </div>
         <div className="e-mail">
-          <label htmlFor="email">E-mail: </label>
-          <input
+          <label className="label" htmlFor="email">E-mail: </label>
+          <input className="input-field"
             type="email"
             id="email"
             value={user.email}
@@ -49,8 +50,8 @@ function SignupPage() {
           />
         </div>
         <div className="pass-word">
-          <label htmlFor="password">Password: </label>
-          <input
+          <label className="label" htmlFor="password">Password: </label>
+          <input className="input-field"
             type="password"
             id="password"
             value={user.password}
@@ -59,13 +60,13 @@ function SignupPage() {
             }
           />
         </div>
-        <p>Already have an account? <Link to={"/login"}>
+        <p className="not-registered">Already have an account? <Link to={"/login"}>
         Log in here.
                   </Link></p>
         
 
         <p className="error">{error}</p>
-        <button className="sign-up"> Sign up</button>
+        <button className="button"> Sign up</button>
       </form>
     </div>
   );
