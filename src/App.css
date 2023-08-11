@@ -416,3 +416,6 @@ font-weight: bolder;
 }
 
 
+.hotel-name, .hotel-address, .hotel-rating {
+  margin: 0; /* Убираем отступы сверху и снизу у всех элементов */
+}

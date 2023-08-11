@@ -1,4 +1,3 @@
-import '../stylesDetailPage.css'
 import axios from "axios"
 import { useParams } from "react-router-dom"
 import { useEffect, useState } from "react"
@@ -259,4 +258,4 @@ console.log(oneHotel)
 }
 
 
-  export default HotelDetails;
+  export default HotelDetails;
