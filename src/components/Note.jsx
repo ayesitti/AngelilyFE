@@ -29,9 +29,7 @@ function Note({ user, favoriteId, shouldFetch, setShouldFetch }) {
     }
   }, [shouldFetch]);
 
-  // if (notes.length === 0) {
-  //   return "Your personal notes here: ";
-  // }
+ 
   //set the editingNotgeId and pre-fill the txtarea w/ the current note text.
   const handleEdit = (id) => {
     const noteToEdit = notes.find((note) => note.id === id);
