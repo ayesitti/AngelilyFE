@@ -9,8 +9,8 @@
 
   }
 .mainContainerOfDetails{
-  margin-left: 10rem;
-  margin-right: 10rem;
+  margin-left: 5rem;
+  margin-right:5rem;
 }
 /*.roomsPhotosContainer{
     width: 100%;
@@ -31,6 +31,7 @@
   display: grid;
   grid-template-columns: [one] 2fr [two] 1fr [three] 1fr [four];
   grid-template-rows: [row1-start] 1fr [row1-end] 1fr;
+  width: 100%;
   padding-top: 2rem;
   padding-bottom: 2rem;
   padding-left: 6rem;
@@ -62,6 +63,7 @@ margin: 1rem;
   justify-content: center;
   align-items: center;
   margin-top: 3rem;
+  width: 60rem;
 }
 .comments{
   display:flex;
@@ -199,4 +201,15 @@ align-items: center;
 .smallicons{
   width: 41rem;
 border: 1px solid #0aaf5d;
+}
+.smallicons img {
+  width: 40.5rem;
+}
+.middleContainerDetails{
+  display: grid;
+  width: 100%;
+grid-template-columns: 1fr 1fr; /* Ширина колонок */
+grid-template-rows: auto; /* Одна строка */
+align-items: center;
+
 }

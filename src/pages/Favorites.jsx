@@ -4,7 +4,7 @@ import { Navigate } from "react-router-dom";
 import Note from "../components/Note";
 import AddNote from "../components/AddNote";
 import { Link } from "react-router-dom";
-import {PiHeartBold} from "react-icons/pi";
+import {PiHeartFill} from "react-icons/pi";
 
 
 const favoritesURL = "https://hooks.adaptable.app/favorites";
@@ -67,7 +67,7 @@ function Favorites({ user }) {
                     className="unlike"
                     onClick={() => removeFavorite(favorite.id)}
                   >
-                    <PiHeartBold/>
+                    <PiHeartFill  className="unlikeIcon"/>
                   </button>
                   
                   <Link to={`/hotel/${hotel.title}`}>

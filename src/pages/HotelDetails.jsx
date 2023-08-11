@@ -200,11 +200,17 @@ console.log(oneHotel)
 				<div className='price'>
 				<p> price</p>
 				</div>
+				
 			</div>
+<div className='middleContainerDetails'>
 
-<div className='smallicons'>
+<div className='smallicons grid-item'>
 	<img src="../../public/ekv.jpg" alt="" />
 </div>
+<Map className='grid-item'oneHotel={oneHotel}/>
+
+</div>
+
 			
 		<form onSubmit={handleSubmit} className='formComments'>
 		<div className='comments'>
@@ -228,7 +234,7 @@ console.log(oneHotel)
 				
 		<div>
 	{comments.map(el => {
-		{console.log(el, "now")}
+	
 			return (
 				<div key={el.id} className='allOpinions grid-item'>	
 			<FaUser className='userIcon'/>
@@ -242,7 +248,7 @@ console.log(oneHotel)
 			</div>
 
 
-		<Map oneHotel={oneHotel}/>
+		{/*<Map oneHotel={oneHotel}/>*/}
 
 		
 	</div>
