@@ -201,7 +201,7 @@
 .dropdown-menu {
   position: absolute;
   top: 100px;
-  right: 20px;
+  right: 75px;
   background-color: rgba(236, 228, 228, 0.972);
   border-radius: var(--border-radius);
 }
@@ -444,4 +444,17 @@ font-weight: bolder;
 }
 .hotel-name, .hotel-address, .hotel-rating {
   margin: 0; /* Убираем отступы сверху и снизу у всех элементов */
+}
+.hotel-text{
+  display: flex;
+  flex-direction: column;
+  text-align: start;
+  justify-content: left;
+
+  padding: 0;
+  margin: 0;
+}
+.hotel-name {
+  margin: 0; /* Сбросить отступы по умолчанию */
+  text-align: left; /* Выравнивание текста по левому краю */
 }
