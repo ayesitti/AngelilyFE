@@ -4,6 +4,7 @@ import { Navigate } from "react-router-dom";
 import Note from "../components/Note";
 import AddNote from "../components/AddNote";
 import { Link } from "react-router-dom";
+import {PiHeartBold} from "react-icons/pi";
 
 
 const favoritesURL = "https://hooks.adaptable.app/favorites";
@@ -45,7 +46,7 @@ function Favorites({ user }) {
     return <Navigate to="/login" />;
   }
 
-  // console.log(favoriteHotelsDetails);
+
   return (
     <>
       <div className="hotelfave-cards">
@@ -55,7 +56,7 @@ function Favorites({ user }) {
             return (
               <div key={hotel.id} className="eachCard">
                 <div>
-              <div>
+              <div className="hotel-note-card">
               <img
                     className="fav-hotelsdetails"
                     src={hotel.imgUrl}
@@ -63,16 +64,17 @@ function Favorites({ user }) {
                   />
               </div>
                  <div> <button
-                    className="delete-button"
+                    className="unlike"
                     onClick={() => removeFavorite(favorite.id)}
                   >
-                    Remove
+                    <PiHeartBold/>
                   </button>
-                  </div> 
+                  
                   <Link to={`/hotel/${hotel.title}`}>
                     <h2> {hotel.title} </h2>
                   </Link>
-                  <p>{hotel.address}</p>
+                  {/* <p>{hotel.address}</p> */}
+                  </div> 
                   <Note
                     shouldFetch={shouldFetch}
                     setShouldFetch={setShouldFetch}
@@ -93,11 +95,6 @@ function Favorites({ user }) {
           return "Sorry, unknown hotel";
         })}
       </div>
-      {/* <div className="notes-list">
-        {notes.map((note) => (
-          <Note />
-        ))}
-      </div> */}
     </>
   );
 }

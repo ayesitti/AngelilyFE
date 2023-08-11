@@ -115,11 +115,13 @@ function HomePage({ user }) {
               )}
              
               </div> 
+              <div className="hotel-text">
               <Link to={`/hotel/${hotel.id}`}>
                 <h2 className="hotel-name">{hotel.title}</h2>{" "}
               </Link>
               <p className="hotel-address">{hotel.address}</p>
               <p className="hotel-rating">Rating: {hotel.rating}</p>
+              </div>
             </div>
           );
         })}
