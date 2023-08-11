@@ -142,13 +142,21 @@ console.log(oneHotel)
 	if (!oneHotel|| !comments) {
 		return <div>Loading...</div>;
 	}
-	return (
-	<div className='mainContainerOfDetails'>
-		
-	<h1 className='oneHotelTitle'> {oneHotel.title} </h1>
+	return (  
+<div className="grid-container">
+		<div className="grid-item one">
+			<div className='head'>
+		<h1 className='oneHotelTitle'> {oneHotel.title} </h1>
 		<p className='oneHotelAdress'>{ oneHotel.address}</p>
-		<div className='barWithIconsDetailsPage'> 
-		<div className="heartDetailsPage  grid-item">
+
+			</div>
+
+		</div>
+
+
+
+		<div className="grid-item two barWithIconsDetailsPage">
+		<div className="heartDetailsPage ">
 		{(isFav) ? (
                 <button onClick={() => removeFavorites(isFav.id)}>
 					
@@ -163,8 +171,8 @@ console.log(oneHotel)
                 }}><PiHeartBold  className="heartDetailsPage2 "/></button>
               )}
 		</div>
-			  <div className="grid-item"></div>
-			  <div className="grid-item smallbox">
+		
+			  <div className=" smallbox">
 				<div>
 			  <FaStar className='iconDetailPage' />
 			
@@ -177,42 +185,62 @@ console.log(oneHotel)
 			 
 	
 			  </div>
-		<div className='photosZone'>
-		<img src={oneHotel.imgUrl} alt="" className='mainPhotoOfHotel' />
-		
-			
-		
+
+
+		<div className="grid-item three photosZone">
+			<div className='photosZone'>
+
+		<div className='grid-item-full'> <img src={oneHotel.imgUrl} alt="" className='mainPhotoOfHotel ' />
+			</div>
+
+			<div className='grid-item-split'>
 		{ oneHotel.imgRooms.map(el => {
 			return (
-				<div key={el} >	
+				<div key={el} className='grid-item2'>	
 			
 			<img src={el} alt="" className='photosOfOneHotel' />
 			
 				</div>
 			)})}
+		</div>
 			
+
 			</div>
+
+
+		</div>
+
+
+		<div className="grid-item four">
+
 				<div className='containerBar'>
-			<div className='infoIneHotel'>
+
+		<div className='infoIneHotel'>
 				<p>{oneHotel.info}</p>
 				</div>
 
 				<div className='price'>
 				<p> price</p>
 				</div>
-				
-			</div>
-<div className='middleContainerDetails'>
 
+				</div>
+
+
+		</div>
+
+
+		<div className="grid-item five">
+			
 <div className='smallicons grid-item'>
 	<img src="../../public/ekv.jpg" alt="" />
 </div>
 <Map className='grid-item'oneHotel={oneHotel}/>
 
-</div>
+		</div>
 
-			
-		<form onSubmit={handleSubmit} className='formComments'>
+
+		<div className="grid-item six">
+		<form onSubmit={handleSubmit} className='formComments  grid-item'>
 		<div className='comments'>
 			<h1> You can share with us your opinion</h1>
 				<label htmlFor='starRating'>Rating:</label>
@@ -247,13 +275,13 @@ console.log(oneHotel)
 			)})}
 			</div>
 
-
-		{/*<Map oneHotel={oneHotel}/>*/}
-
 		
-	</div>
+</div>
+</div>
 	);
 }
+
+
 
 
   export default HotelDetails;

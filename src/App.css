@@ -375,4 +375,14 @@ textarea:focus {
   color: rgb(15, 143, 15);
   z-index: 3
 }
+.hotel-text {
+  display: flex;
+  flex-direction: column; /* Добавляем flex контейнер для выравнивания */
+  align-items: flex-start; /* Выравнивание элементов по верхнему краю */
+  text-align: left; 
+  justify-content:flex-start;/* Выравнивание к левому краю */
+}
 
+.hotel-name, .hotel-address, .hotel-rating {
+  margin: 0; /* Убираем отступы сверху и снизу у всех элементов */
+}
