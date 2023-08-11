@@ -1,3 +1,4 @@
+ import '../stylesDetailPage.css'
 import axios from "axios"
 import { useParams } from "react-router-dom"
 import { useEffect, useState } from "react"
@@ -208,7 +209,7 @@ console.log(oneHotel)
 	<img src="../../public/ekv.jpg" alt="" />
 	
 </div>
-<Map className='grid-item'oneHotel={oneHotel}/>
+
 
 </div>
 
@@ -250,7 +251,7 @@ console.log(oneHotel)
 			</div>
 
 
-		{/*<Map oneHotel={oneHotel}/>*/}
+		<Map oneHotel={oneHotel}/>
 
 		
 	</div>
