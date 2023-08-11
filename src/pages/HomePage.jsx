@@ -90,8 +90,8 @@ function HomePage({ user }) {
              <BsSearchHeart className=" searchIcon"/>
             <input className="search-bar-text" type="search" placeholder="Hotel Name" 
             onChange={handleSearch}/>
-            <button className="searchBtn">
-            </button>
+            {/* <button className="searchBtn">
+            </button> */}
            
           </div>
         )}

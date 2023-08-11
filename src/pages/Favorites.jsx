@@ -64,7 +64,7 @@ function Favorites({ user }) {
                   />
               </div>
                  <div> <button
-                    className="unlike"
+                    className="btnh"
                     onClick={() => removeFavorite(favorite.id)}
                   >
                     <PiHeartFill  className="unlikeIcon"/>
